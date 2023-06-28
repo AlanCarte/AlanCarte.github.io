@@ -1,0 +1,1824 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>微机原理与接口技术 | Alan-Blog</title><meta name="keywords" content="学习笔记"><meta name="author" content="Alan"><meta name="copyright" content="Alan"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="微机原理与接口技术"><meta name="application-name" content="微机原理与接口技术"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta name="description" content="微机原理与接口技术第一章 微型计算机系统概述1. 微型计算机系统组成 微处理器:运算器、控制器、寄存器 微型计算机：输入输出接口、总线、内存 微型计算机系统：由硬件和软件共同组成的完整的计算机系统  2. 系统总线 地址总线AB 输出将要访问的内存单元或I&#x2F;O端口的地址 地址线的多少决定了系统直接寻址存储器的范围 数据总线DB CPU读操作时，外部数据通过数据总线送往CPU CPU写操作时，CPU">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微机原理与接口技术">
+<meta property="og:url" content="https://github.com/AlanCarte/AlanCarte.github.io/project/2023/06/15/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF/index.html">
+<meta property="og:site_name" content="Alan-Blog">
+<meta property="og:description" content="微机原理与接口技术第一章 微型计算机系统概述1. 微型计算机系统组成 微处理器:运算器、控制器、寄存器 微型计算机：输入输出接口、总线、内存 微型计算机系统：由硬件和软件共同组成的完整的计算机系统  2. 系统总线 地址总线AB 输出将要访问的内存单元或I&#x2F;O端口的地址 地址线的多少决定了系统直接寻址存储器的范围 数据总线DB CPU读操作时，外部数据通过数据总线送往CPU CPU写操作时，CPU">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://pic-1318708771.cos.ap-beijing.myqcloud.com/test/202306272036912.webp">
+<meta property="article:published_time" content="2023-06-15T08:30:00.000Z">
+<meta property="article:modified_time" content="2023-06-28T04:58:16.056Z">
+<meta property="article:author" content="Alan">
+<meta property="article:tag" content="学习笔记">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://pic-1318708771.cos.ap-beijing.myqcloud.com/test/202306272036912.webp"><link rel="shortcut icon" href="/AlanCarte/AlanCarte.github.io/project/img/paint.png"><link rel="canonical" href="https://github.com/AlanCarte/AlanCarte.github.io/project/2023/06/15/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF/"><link rel="preconnect" href="//npm.elemecdn.com"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="xxx"/><meta name="baidu-site-verification" content="code-xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="/AlanCarte/AlanCarte.github.io/project/css/index.css"><link rel="stylesheet" href="https://npm.elemecdn.com/@fortawesome/fontawesome-free@6.3.0/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/@fancyapps/ui@4.0.31/dist/fancybox.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?https://hm.baidu.com/hm.js?c9c2cd04b2c4032a0575f06c2cc8ed83";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/AlanCarte/AlanCarte.github.io/project/',
+  friends_vue_info: {"apiurl":null},
+  navMusic: true,
+  changeMainColorPost: true,
+  algolia: {"appId":"Z7A3XW4R2I","apiKey":"12db1ad54372045549ef465881c17e743","indexName":"my-hexo-blog","hits":{"per_page":6},"languages":{"input_placeholder":"键入后按下回车搜索！","hits_empty":"找不到您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: {"limitDay":365,"position":"top","messagePrev":"It has been","messageNext":"days since the last update, the content of the article may be outdated."},
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":200},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: true,
+    post: true
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#3b70fc","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://npm.elemecdn.com/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
+      css: 'https://npm.elemecdn.com/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '微机原理与接口技术',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-06-28 12:58:16'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 8 || hour >= 10
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="/css/custom.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="/css/icon-font.css"><link rel="stylesheet" href="/css/welcome.css?1"><link rel="stylesheet" href="/css/stars.css?1"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/AlanCarte/AlanCarte.github.io/project/atom.xml" title="Alan-Blog" type="application/atom+xml">
+</head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="web_box"><div id="web_container"><div id="menu-mask"></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><div class="back-home-button" tabindex="-1"><i class="anzhiyufont anzhiyu-icon-grip-vertical"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" href="https://blog.anheyu.com/" title="博客" target="_blank"><img class="back-menu-item-icon" src="https://pic-1318708771.cos.ap-beijing.myqcloud.com/test/202306232207145.png" alt="博客"/><span class="back-menu-item-text">博客</span></a><a class="back-menu-item" href="album/" title="小熊图集" target="_blank"><img class="back-menu-item-icon" src="https://pic-1318708771.cos.ap-beijing.myqcloud.com/test/202306232207144.svg" alt="小熊图集"/><span class="back-menu-item-text">小熊图集</span></a></div></div></div></div><a id="site-name" href="/AlanCarte/AlanCarte.github.io/project/"><div class="title">Alan-Blog</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="javascript:void(0);"><span> 文库</span></a><ul class="menus_item_child" style="left:-79px;"><li><a class="site-page child faa-parent animated-hover" href="/AlanCarte/AlanCarte.github.io/project/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 全部文章</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/AlanCarte/AlanCarte.github.io/project/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/AlanCarte/AlanCarte.github.io/project/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child" style="left:-79px;"><li><a class="site-page child faa-parent animated-hover" href="/AlanCarte/AlanCarte.github.io/project/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/AlanCarte/AlanCarte.github.io/project/fcircle/"><i class="anzhiyufont anzhiyu-icon-artstation faa-tada" style="font-size: 0.9em;"></i><span> 朋友圈</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/AlanCarte/AlanCarte.github.io/project/comments/"><i class="anzhiyufont anzhiyu-icon-envelope faa-tada" style="font-size: 0.9em;"></i><span> 留言板</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child" style="left:-127px;"><li><a class="site-page child faa-parent animated-hover" href="/AlanCarte/AlanCarte.github.io/project/music/?id=2173542081&amp;server=netease"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/AlanCarte/AlanCarte.github.io/project/collect/"><i class="anzhiyufont anzhiyu-icon-bilibili faa-tada" style="font-size: 0.9em;"></i><span> 电影推荐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/AlanCarte/AlanCarte.github.io/project/album/"><i class="fa-solid fa-film faa-tada"></i><span> 相册集</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/AlanCarte/AlanCarte.github.io/project/stars/"><i class="fa-solid fa-star faa-tada"></i><span> 百宝箱</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child" style="left:-79px;"><li><a class="site-page child faa-parent animated-hover" href="/AlanCarte/AlanCarte.github.io/project/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/AlanCarte/AlanCarte.github.io/project/essay/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 闲言碎语</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><div class="nav-button" id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" title="搜索🔍"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span> 搜索</span></a></div><div class="nav-button" id="darkmode_navswitch"><a class="darkmode_switchbutton" type="button" href="javascript:void(0);" title="浅色和深色模式转换" onclick="anzhiyu.switchDarkMode()"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke" style="font-size: 1.3rem"></i></a></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/AlanCarte/AlanCarte.github.io/project/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">学习笔记</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/AlanCarte/AlanCarte.github.io/project/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>学习笔记</span></a></span></div></div><h1 class="post-title">微机原理与接口技术</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-06-15T08:30:00.000Z" title="发表于 2023-06-15 16:30:00">2023-06-15</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-06-28T04:58:16.056Z" title="更新于 2023-06-28 12:58:16">2023-06-28</time></span></div><div class="meta-secondline"><span class="post-meta-separator"></span><span class="post-meta-wordcount"><i class="anzhiyufont anzhiyu-icon-file-word post-meta-icon" title="文章字数"></i><span class="post-meta-label" title="文章字数">字数总计:</span><span class="word-count" title="文章字数">8.7k</span><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-clock post-meta-icon" title="阅读时长"></i><span class="post-meta-label" title="阅读时长">阅读时长:</span><span>28分钟</span></span><span class="post-meta-separator"></span><span class="post-meta-pv-cv" id="" data-flag-title="微机原理与接口技术"><i class="anzhiyufont anzhiyu-icon-fw-eye post-meta-icon"></i><span class="post-meta-label" title="阅读量">阅读量:</span><span id="busuanzi_value_page_pv"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></span><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为北京"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>北京</span><span class="post-meta-separator"></span><span class="post-meta-commentcount"><i class="anzhiyufont anzhiyu-icon-comments post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/AlanCarte/AlanCarte.github.io/project/2023/06/15/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF/#post-comment" itemprop="discussionUrl"><span class="valine-comment-count" data-xid="/AlanCarte/AlanCarte.github.io/project/2023/06/15/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF/" itemprop="commentCount"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></a></span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src="https://pic-1318708771.cos.ap-beijing.myqcloud.com/test/202306272036912.webp"></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="微机原理与接口技术"><a href="#微机原理与接口技术" class="headerlink" title="微机原理与接口技术"></a>微机原理与接口技术</h1><h2 id="第一章-微型计算机系统概述"><a href="#第一章-微型计算机系统概述" class="headerlink" title="第一章 微型计算机系统概述"></a>第一章 微型计算机系统概述</h2><h3 id="1-微型计算机系统组成"><a href="#1-微型计算机系统组成" class="headerlink" title="1. 微型计算机系统组成"></a>1. 微型计算机系统组成</h3><ol>
+<li>微处理器:运算器、控制器、寄存器</li>
+<li>微型计算机：输入输出接口、总线、内存</li>
+<li>微型计算机系统：由硬件和软件共同组成的完整的计算机系统</li>
+</ol>
+<h3 id="2-系统总线"><a href="#2-系统总线" class="headerlink" title="2. 系统总线"></a>2. 系统总线</h3><ul>
+<li>地址总线AB</li>
+<li>输出将要访问的内存单元或I/O端口的地址</li>
+<li>地址线的多少决定了系统直接寻址存储器的范围</li>
+<li>数据总线DB</li>
+<li>CPU读操作时，外部数据通过数据总线送往CPU</li>
+<li>CPU写操作时，CPU数据通过数据总线送往外部</li>
+<li>数据线的多少决定了一次能够传送数据的位数</li>
+<li>控制总线CB</li>
+<li>协调系统中各部件的操作，有输出控制、输入状态等信号</li>
+<li>控制总线决定了系统总线的特点，例如功能、适应性等</li>
+</ul>
+<h3 id="3-基于8088CPU的PC微机系统结构"><a href="#3-基于8088CPU的PC微机系统结构" class="headerlink" title="3. 基于8088CPU的PC微机系统结构"></a>3. 基于8088CPU的PC微机系统结构</h3><ol>
+<li>运算器：包括算术逻辑单元（ALU），对数据进行算术或者逻辑运算</li>
+<li>控制器：包括指令寄存器、指令译码器、定时控制电路。执行一条指令的流程为：取指令，翻译指令，执行指令 </li>
+<li>寄存器阵列：包括通用寄存器和专用寄存器，通用寄存器用来存放临时数据，专用寄存器有PC和SP等</li>
+</ol>
+<h3 id="4-微处理器（CPU）内部结构"><a href="#4-微处理器（CPU）内部结构" class="headerlink" title="4. 微处理器（CPU）内部结构"></a>4. 微处理器（CPU）内部结构</h3><ul>
+<li><p>指令处理单元（控制器）：对机器指令<strong>译码</strong>，产生指令执行所需的<strong>控制信</strong>号，并按照指令规定的时序将控制信号<strong>传送</strong>到CPU内部各器件或传送到总线。</p>
+</li>
+<li><p>算术逻辑单元（运算器）：接收到控制器发出的各种运算控制信号后，执行相应运算，并影响相应标志位。</p>
+</li>
+<li><p>寄存器组：CPU内用于暂时存放数据、地址的存储单元，CPU从内存读取指令、在内存中读写数据，均需要这些寄存器完成寻址、暂存的功能。其中标志寄存器能够间接影响程序执行流程</p>
+</li>
+<li><p>8088的内部结构从功能分成两个单元</p>
+<p>a. 总线接口单元BIU——管理8088与系统总线的接口，负责CPU对存储器和外设进行访问</p>
+<p>b. 执行单元EU——负责指令的译码、执行和数据的运算</p>
+<p>c. 两个单元相互独立，分别完成各自操作</p>
+<p> 两个单元可以并行执行，实现指令取指和执行的流水线操作</p>
+</li>
+</ul>
+<h2 id="8088-CPU-外部特性与IBM-PC总线结构"><a href="#8088-CPU-外部特性与IBM-PC总线结构" class="headerlink" title="8088 CPU 外部特性与IBM PC总线结构"></a>8088 CPU 外部特性与IBM PC总线结构</h2><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/image/01.png" alt="01"></p>
+<h3 id="1-8088的两种组态模式"><a href="#1-8088的两种组态模式" class="headerlink" title="1. 8088的两种组态模式"></a>1. 8088的两种组态模式</h3><ul>
+<li>MN/MX*接高电平为最小组态模式</li>
+<li>MN/MX*接低电平为最大组态模式</li>
+</ul>
+<h3 id="2-8088最小组态的引脚信号"><a href="#2-8088最小组态的引脚信号" class="headerlink" title="2. 8088最小组态的引脚信号"></a>2. 8088最小组态的引脚信号</h3><h5 id="1-数据和地址引脚"><a href="#1-数据和地址引脚" class="headerlink" title="1. 数据和地址引脚"></a>1. 数据和地址引脚</h5><ol>
+<li>AD7～AD0</li>
+</ol>
+<ul>
+<li>地址/数据分时复用引脚，双向、三态</li>
+<li>在访问存储器或外设的总线操作周期中，这些引脚在第一个时钟周期输出存储器或I/O端口的低8位地址A7～A0</li>
+<li>其他时间用于传送8位数据D7～D0</li>
+</ul>
+<ol>
+<li>A15～A8（Address）<br>中间8位地址引脚，输出、三态<br>这些引脚在访问存储器或外设时，提供全部20位地址中的中间8位地址A15～A8</li>
+<li>A19/S6～A16/S3（Address/Status）</li>
+</ol>
+<ul>
+<li>地址/状态分时复用引脚，输出、三态</li>
+<li>这些引脚在访问存储器的第一个时钟周期输出高4位地址A19～A16</li>
+<li>在访问外设的第一个时钟周期全部输出低电平无效</li>
+<li>其他时间输出状态信号S6～S3</li>
+<li>S6始终为低；</li>
+<li>S5为标志寄存器的中断允许标志的状态位，它在每一个时钟周期开始时被修改；</li>
+<li>S4和S3用以指示是哪一个段寄存器正在被使用，00为ES，01为SS，10为CS，11为DS。</li>
+<li>在DMA方式时这4条线处于高阻状态</li>
+</ul>
+<h5 id="2-读写控制引脚"><a href="#2-读写控制引脚" class="headerlink" title="2. 读写控制引脚"></a>2. 读写控制引脚</h5><ol>
+<li>ALE（Address Latch Enable）</li>
+</ol>
+<ul>
+<li>地址锁存允许，输出、三态、高电平有效</li>
+<li>ALE引脚高有效时，表示复用引脚：AD7～AD0和A19/S6～A16/S3正在传送地址信息</li>
+<li>由于地址信息在这些复用引脚上出现的时间很短暂，所以系统可以利用ALE引脚将地址锁存起来</li>
+</ul>
+<ol>
+<li>IO/M*（Input and Output/Memory）</li>
+</ol>
+<ul>
+<li>I/O或存储器访问，输出、三态</li>
+<li>该引脚输出高电平时，表示CPU将访问I/O端口，这时地址总线A15～A0提供16位I/O口地址</li>
+<li>该引脚输出低电平时，表示CPU将访问存储器，这时地址总线A19～A0提供20位存储器地址</li>
+</ul>
+<ol>
+<li>WR*（Write）</li>
+</ol>
+<ul>
+<li>写控制，输出、三态、低电平有效</li>
+<li>有效时，表示CPU正在写出数据给存储器或I/O端口</li>
+</ul>
+<ol>
+<li>RD*（Read）</li>
+</ol>
+<ul>
+<li>读控制，输出、三态、低电平有效</li>
+<li>有效时，表示CPU正在从存储器或I/O端口读入数据</li>
+</ul>
+<ol>
+<li>READY</li>
+</ol>
+<ul>
+<li>存储器或I/O口就绪，输入、高电平有效</li>
+<li>在总线操作周期中，8088CPU会在第3个时钟周期的前沿（下降沿）测试该引脚<br>如果测到高有效，CPU直接进入第4个时钟周期<br>如果测到无效，CPU将插入等待周期Tw</li>
+<li>CPU在等待周期中仍然要监测READY信号，有效则进入第4个时钟周期，否则继续插入等待周期Tw</li>
+</ul>
+<ol>
+<li>DEN*（Data Enable）</li>
+</ol>
+<ul>
+<li>数据允许，输出、三态、低电平有效</li>
+<li>有效时，表示当前数据总线上正在传送数据，可利用他来控制对数据总线的驱动</li>
+</ul>
+<ol>
+<li>DT/R*（Data Transmit/Receive）</li>
+</ol>
+<ul>
+<li>数据发送/接收，输出、三态</li>
+<li>该信号表明当前总线上数据的流向<br>高电平时数据自CPU输出（发送）<br>低电平时数据输入CPU（接收）</li>
+</ul>
+<ol>
+<li>SS0*（System Status 0）<br>最小组态模式下的状态输出信号</li>
+</ol>
+<ul>
+<li>它与IO/M<em>和DT/R</em>一道，通过编码指示CPU在最小组态下的8种工作状态：</li>
+</ul>
+<h5 id="3-中断请求和响应引脚"><a href="#3-中断请求和响应引脚" class="headerlink" title="3. 中断请求和响应引脚"></a>3. 中断请求和响应引脚</h5><ol>
+<li>INTR（Interrupt Request）</li>
+</ol>
+<ul>
+<li>可屏蔽中断请求，输入、高电平有效</li>
+<li>有效时，表示请求设备向CPU申请可屏蔽中断</li>
+<li>该请求的优先级别较低，并可通过关中断指令CLI清除标志寄存器中的IF标志、从而对中断请求进行屏蔽</li>
+</ul>
+<ol>
+<li>INTA*（Interrupt Acknowledge）</li>
+</ol>
+<ul>
+<li>可屏蔽中断响应，输出、低电平有效</li>
+<li>有效时，表示来自INTR引脚的中断请求已被CPU响应，CPU进入中断响应周期</li>
+<li>中断响应周期是连续的两个，每个都发出有效响应信号，以便通知外设他们的中断请求已被响应、并令有关设备将中断向量号送到数据总线</li>
+</ul>
+<ol>
+<li>NMI（Non-Maskable Interrupt）</li>
+</ol>
+<ul>
+<li>不可屏蔽中断请求，输入、上升沿有效</li>
+<li>有效时，表示外界向CPU申请不可屏蔽中断</li>
+<li>该请求的优先级别高于INTR，并且不能在CPU内被屏蔽</li>
+<li>当系统发生紧急情况时，可通过他向CPU申请不可屏蔽中断服务</li>
+</ul>
+<h5 id="4-总线请求和响应引脚"><a href="#4-总线请求和响应引脚" class="headerlink" title="4. 总线请求和响应引脚"></a>4. 总线请求和响应引脚</h5><ol>
+<li>HOLD</li>
+</ol>
+<ul>
+<li>总线保持（即总线请求），输入、高电平有效</li>
+<li>有效时，表示总线请求设备向CPU申请占有总线</li>
+</ul>
+<ol>
+<li>HLDA（HOLD Acknowledge）</li>
+</ol>
+<ul>
+<li>总线保持响应（即总线响应），输出、高电平有效</li>
+<li>有效时，表示CPU已响应总线请求并已将总线释放</li>
+<li>此时CPU的地址总线、数据总线及具有三态输出能力的控制总线将全面呈现高阻，使总线请求设备可以顺利接管总线</li>
+<li>待到总线请求信号HOLD无效，总线响应信号HLDA也转为无效，CPU重新获得总线控制权</li>
+</ul>
+<ol>
+<li>RESET</li>
+</ol>
+<ul>
+<li>复位请求，输入、高电平有效</li>
+<li>该信号有效，将使CPU回到其初始状态；当它再度返回无效时，CPU将重新开始工作<br>8088/86复位后<br>CS＝FFFFH、IP＝0000H，<br>所以程序入口在物理地址FFFF0H</li>
+</ul>
+<ol>
+<li>CLK（Clock）<br>时钟输入</li>
+</ol>
+<h5 id="5-其它引脚"><a href="#5-其它引脚" class="headerlink" title="5. 其它引脚"></a>5. 其它引脚</h5><ol>
+<li>MN/MX*（Minimum/Maximum）<br>组态选择，输入</li>
+<li>TEST*<br>测试，输入、低电平有效</li>
+</ol>
+<h5 id="6-8088的基本总线时序"><a href="#6-8088的基本总线时序" class="headerlink" title="6. 8088的基本总线时序"></a>6. 8088的基本总线时序</h5><ol>
+<li>总线时序描述CPU引脚如何实现总线操作</li>
+</ol>
+<ul>
+<li>描述总线操作的微处理器时序有三级：<br>指令周期 → 总线周期 → 时钟周期</li>
+<li>指令周期是指一条指令经取指、译码、读写操作数到执行完成的过程。若干总线周期组成一个指令周期</li>
+<li>总线周期是指CPU通过总线操作与外部（存储器或I/O端口）进行一次数据交换的过程</li>
+<li>8088的基本总线周期需要4个时钟周期</li>
+<li>总线操作中如何实现CPU与内存、接口芯片间的时序同步是关键</li>
+<li>同步时序：<br>各部件都以系统时钟信号为基准<br>当相互不能配合时，快速部件（CPU）插入等待状态等待慢速部件（I/O和存储器）</li>
+<li>异步时序：<br>CPU与外设接口通过应答联络信号实现同步操作</li>
+</ul>
+<h5 id="7-8088最小组态的总线时序"><a href="#7-8088最小组态的总线时序" class="headerlink" title="7. 8088最小组态的总线时序"></a>7. 8088最小组态的总线时序</h5><ul>
+<li>存储器读总线周期</li>
+<li>存储器写总线周期</li>
+<li>I/O读总线周期</li>
+<li>I/O写总线周期</li>
+</ul>
+<h5 id="8-8088最大组态中的引脚定义"><a href="#8-8088最大组态中的引脚定义" class="headerlink" title="8. 8088最大组态中的引脚定义"></a>8. 8088最大组态中的引脚定义</h5><ul>
+<li>有些控制信号不相同，主要是用于输出操作编码信号，由总线控制器8288译码产生系统控制信号：</li>
+<li>LOCK*——总线封锁信号</li>
+<li>S2<em>、S1</em>、S0*——3个状态信号</li>
+<li>QS1、QS0——指令队列状态信号</li>
+<li>RQ<em>/GT0</em>、RQ<em>/GT1</em>——2个总线请求/同意信号</li>
+</ul>
+<h5 id="9-8088最大组态的总线形成"><a href="#9-8088最大组态的总线形成" class="headerlink" title="9. 8088最大组态的总线形成"></a>9. 8088最大组态的总线形成</h5><p>系统地址总线</p>
+<ol>
+<li>采用三态透明锁存器74LS373和三态单向缓冲器74LS244</li>
+<li>系统数据总线<br>通过三态双向缓冲器74LS245形成和驱动</li>
+<li>系统控制总线<br>主要由总线控制器8288形成<br>MEMR<em>、MEMW</em>、IOR<em>、IOW</em>、INTA*</li>
+</ol>
+<hr>
+<h2 id="第二章-半导体存储器及接口"><a href="#第二章-半导体存储器及接口" class="headerlink" title="第二章 半导体存储器及接口"></a>第二章 半导体存储器及接口</h2><h5 id="1-半导体存储器的分类"><a href="#1-半导体存储器的分类" class="headerlink" title="1. 半导体存储器的分类"></a>1. 半导体存储器的分类</h5><ol>
+<li>读写存储器RAM：SRAM.DRAM,NVRAM</li>
+<li>只读存储器ROM</li>
+</ol>
+<ul>
+<li>掩膜ROM：信息制作在芯片中，不可更改</li>
+<li>PROM：允许一次编程，此后不可更改</li>
+<li>EPROM：用紫外光擦除，擦除后可编程；并允许用户多次擦除和编程</li>
+<li>EEPROM（E2PROM）：采用加电方法在线进行擦除和编程，也可多次擦写</li>
+<li>Flash Memory（闪存）：能够快速擦写的EEPROM，但只能按块（Block）擦除</li>
+</ul>
+<h5 id="2-半导体存储器芯片的内部结构"><a href="#2-半导体存储器芯片的内部结构" class="headerlink" title="2. 半导体存储器芯片的内部结构"></a>2. 半导体存储器芯片的内部结构</h5><ol>
+<li>每个存储单元具有一个唯一的地址，可存储1位（位片结构）或多位（字片结构）二进制数据</li>
+</ol>
+<ul>
+<li>存储容量（bits）与地址、数据线个数有关：<br>芯片的存储容量＝2^M×N<br>＝存储单元数×存储单元的位数</li>
+</ul>
+<ol>
+<li>地址译码电路结构<br>单译码，双译码</li>
+<li>片选和读写控制逻辑<br>片选端CS<em>或CE</em><br>有效时，可以对该芯片进行读写操作<br>输出OE<em><br>控制读操作。有效时，芯片内数据输出<br>该控制端对应系统的读控制线<br>写WE</em><br>控制写操作。有效时，数据进入芯片中<br>该控制端对应系统的写控制线</li>
+</ol>
+<h5 id="4-随机存取存储器"><a href="#4-随机存取存储器" class="headerlink" title="4. 随机存取存储器"></a>4. 随机存取存储器</h5><ol>
+<li>静态RAM（SRAM）</li>
+</ol>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/image/02.png" alt="02"></p>
+<ul>
+<li>SRAM的基本存储单元是触发器电路</li>
+<li>SRAM一般采用“字结构”存储矩阵</li>
+<li>SRAM芯片2114外部特性：<br>10根地址线A9～A0<br>4根数据线I/O4～I/O1<br>片选CS<em><br>读写WE</em></li>
+<li>SRAM芯片6264外部特性<br>28个引脚：<br>13根地址线A12～A0<br>8根数据线D7～D0<br>片选CS1<em>、CS2<br>读写WE</em>、OE*</li>
+</ul>
+<ol>
+<li>动态RAM</li>
+</ol>
+<ul>
+<li>每个存储单元存放一位，芯片内每个位单元具有独立地址</li>
+<li>需要8个存储芯片构成一个字节单元，每个</li>
+<li>DRAM芯片4116外部特性</li>
+<li><ul>
+<li>7根地址线A6～A0,</li>
+</ul>
+</li>
+<li><ul>
+<li>1根数据输入线DIN,</li>
+</ul>
+</li>
+<li><ul>
+<li>1根数据输出线DOUT,</li>
+</ul>
+</li>
+<li><ul>
+<li>行地址选通RAS*,</li>
+</ul>
+</li>
+<li><ul>
+<li>列地址选通CAS*,</li>
+</ul>
+</li>
+<li><ul>
+<li>读写控制WE*.</li>
+</ul>
+</li>
+<li>DRAM 4116的刷新:采用“仅行地址有效”方法刷新</li>
+<li>DRAM芯片2164外部特性</li>
+<li><ul>
+<li>8根地址线A7～A0<br>1根数据输入线DIN<br>1根数据输出线DOUT<br>行地址选通RAS<em><br>列地址选通CAS</em><br>读写控制WE*</li>
+</ul>
+</li>
+</ul>
+<h5 id="5-只读存储器"><a href="#5-只读存储器" class="headerlink" title="5. 只读存储器"></a>5. 只读存储器</h5><ol>
+<li>EPROM 2716</li>
+</ol>
+<ul>
+<li>11根地址线A10～A0<br>8根数据线DO7～DO0<br>片选/编程CE<em>/PGM<br>读写OE</em><br>编程电压VPP</li>
+</ul>
+<ol>
+<li>EPROM 2764</li>
+</ol>
+<ul>
+<li>13根地址线A12～A0<br>8根数据线D7～D0<br>片选CE<em><br>编程PGM</em><br>读写OE*<br>编程电压VPP</li>
+</ul>
+<ol>
+<li>EEPROM<br>用加电方法，进行在线（无需拔下，直接在电路中）擦写（擦除和编程一次完成）</li>
+<li>EEPROM 2717A</li>
+</ol>
+<ul>
+<li>11根地址线A10～A0<br>8根数据线I/O7～I/O0<br>片选CE<em><br>读写OE</em>、WE<em><br>状态输出RDY/BUSY</em></li>
+</ul>
+<ol>
+<li>EEPROM 2864A</li>
+</ol>
+<ul>
+<li>13根地址线A12～A0<br>8根数据线I/O7～I/O0<br>片选CE<em><br>读写OE</em>、WE*</li>
+</ul>
+<h5 id="6-半导体存储器与CPU的连接"><a href="#6-半导体存储器与CPU的连接" class="headerlink" title="6. 半导体存储器与CPU的连接"></a>6. 半导体存储器与CPU的连接</h5><ol>
+<li>存储芯片的数据线</li>
+</ol>
+<ul>
+<li>若芯片的数据线正好8根：<br>一次可从芯片中访问到8位数据，全部数据线与系统的8位数据总线相连</li>
+<li>若芯片的数据线不足8根：一次不能从一个芯片中访问到8位数据，“位扩充”</li>
+</ul>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/image/03.png" alt="03"></p>
+<ol>
+<li>存储芯片的地址线</li>
+</ol>
+<ul>
+<li>芯片的地址线通常应全部与系统的低位地址总线相连</li>
+<li>寻址时，这部分地址的译码是在存储芯片内完成的，我们称为“<strong>片内译码</strong>”</li>
+</ul>
+<ol>
+<li>存储芯片的片选端</li>
+</ol>
+<ul>
+<li>存储系统常需利用多个存储芯片扩充容量，也就是扩充了存储器地址范围</li>
+<li>进行“地址扩充”，需要利用存储芯片的片选端对多个存储芯片（组）进行寻址</li>
+<li>这个寻址方法，主要通过将存储芯片的片选端与系统的高位地址线相关联来实现</li>
+<li>这种扩充简称为“地址扩充”或“字扩充”</li>
+</ul>
+<p><strong>译码和译码器</strong></p>
+<p><strong>全译码</strong></p>
+<ol>
+<li>所有的系统地址线均参与对存储单元的译码寻址</li>
+<li>包括低位地址线对芯片内各存储单元的译码寻址（片内译码），高位地址线对存储芯片的译码寻址（片选译码）</li>
+<li>采用全译码，每个存储单元的地址都是唯一的，不存在地址重复</li>
+<li>译码电路可能比较复杂、连线也较多</li>
+</ol>
+<p><strong>部分译码</strong></p>
+<ol>
+<li>只有部分（高位）地址线参与对存储芯片的译码</li>
+<li>每个存储单元将对应多个地址（地址重复），需要选取一个可用地址</li>
+<li>可简化译码电路的设计</li>
+<li>但系统的部分地址空间将被浪费</li>
+</ol>
+<p><strong>线选译码</strong></p>
+<ul>
+<li>只用少数几根高位地址线进行芯片的译码，且每根负责选中一个芯片（组）</li>
+<li>虽构成简单，但地址空间严重浪费，必然会出现地址重复</li>
+<li>一个存储地址会对应多个存储单元</li>
+<li>多个存储单元共用的存储地址不应使用</li>
+</ul>
+<ol>
+<li>存储芯片的读写控制线</li>
+</ol>
+<ul>
+<li>芯片OE*与系统的读命令线相连<br>当芯片被选中、且读命令有效时，存储芯片将开放并驱动数据到总线</li>
+<li>芯片WE*与系统的写命令线相连<br>当芯片被选中、且写命令有效时，允许总线数据写入存储芯片</li>
+</ul>
+<h5 id="7-存储芯片与CPU的配合"><a href="#7-存储芯片与CPU的配合" class="headerlink" title="7. 存储芯片与CPU的配合"></a>7. 存储芯片与CPU的配合</h5><ol>
+<li>总线驱动</li>
+</ol>
+<ul>
+<li>CPU的总线驱动能力有限</li>
+<li>单向传送的地址和控制总线，可采用三态锁存器和三态单向驱动器等来加以锁存和驱动</li>
+<li>双向传送的数据总线，可以采用三态双向驱动器来加以驱动</li>
+</ul>
+<ol>
+<li>时序配合</li>
+</ol>
+<ul>
+<li>分析存储器的存取速度是否满足CPU总线时序的要求<br>如果不能满足：考虑更换芯片，总线周期中插入等待状态TW</li>
+</ul>
+<h5 id="8-8086存储器组织"><a href="#8-8086存储器组织" class="headerlink" title="8. 8086存储器组织"></a>8. 8086存储器组织</h5><ol>
+<li>寻址空间(20位地址线)<br>220＝1M bytes的存储器寻址空间<br>分段的概念</li>
+<li>分段组织<br>段寄存器的16位值左移4位，得到的20位值加上16位的偏移量。</li>
+<li>字与字节访问<br>AD0 信号和BHE信号组合，选择奇偶字节或字。</li>
+</ol>
+<hr>
+<h2 id="第三章-基本输入输出接口"><a href="#第三章-基本输入输出接口" class="headerlink" title="第三章 基本输入输出接口"></a>第三章 基本输入输出接口</h2><h3 id="I-O接口概述"><a href="#I-O接口概述" class="headerlink" title="I/O接口概述"></a>I/O接口概述</h3><ul>
+<li>I/O接口是位于系统与外设间、用来协助完成数据传送和控制任务的逻辑电路</li>
+<li>PC机系统板的可编程接口芯片、I/O总线槽的电路板（适配器）都是接口电路</li>
+</ul>
+<ol>
+<li>信号转换<br>对信号的形式和数据的格式进行变换<br>微机直接处理：数字量、开关量、脉冲量</li>
+<li>数据缓冲<br>对输入输出数据进行缓冲和锁存<br>输出锁存缓冲环节，输入锁存缓冲环节</li>
+<li>对I/O端口进行寻址</li>
+<li>与CPU和I/O设备进行联络</li>
+</ol>
+<h3 id="I-O接口的典型结构"><a href="#I-O接口的典型结构" class="headerlink" title="I/O接口的典型结构"></a>I/O接口的典型结构</h3><h5 id="1-接口电路的内部结构"><a href="#1-接口电路的内部结构" class="headerlink" title="1. 接口电路的内部结构"></a>1. 接口电路的内部结构</h5><ul>
+<li>数据寄存器<br>保存外设给CPU和CPU发往外设的数据</li>
+<li>状态寄存器<br>保存外设或接口电路的状态</li>
+<li>控制寄存器<br>保存CPU给外设或接口电路的命令</li>
+</ul>
+<h5 id="2-接口电路的外部特性"><a href="#2-接口电路的外部特性" class="headerlink" title="2. 接口电路的外部特性"></a>2. 接口电路的外部特性</h5><ul>
+<li>面向CPU一侧的信号：用于与CPU连接、主要是数据、地址和控制信号</li>
+<li>面向外设一侧的信号：用于与外设连接、提供的信号种类繁多、功能定义、时序及有效电平等差异较大</li>
+</ul>
+<h5 id="3-接口电路芯片的分类"><a href="#3-接口电路芯片的分类" class="headerlink" title="3. 接口电路芯片的分类"></a>3. 接口电路芯片的分类</h5><ul>
+<li>通用接口芯片<br>支持通用的数据输入输出和控制的接口芯片</li>
+<li>面向外设的专用接口芯片<br>针对某种外设设计、与该种外设接口</li>
+<li>面向微机系统的专用接口芯片<br>与CPU和系统配套使用，以增强其总体功能</li>
+</ul>
+<h5 id="4-接口电路的可编程性"><a href="#4-接口电路的可编程性" class="headerlink" title="4. 接口电路的可编程性"></a>4. 接口电路的可编程性</h5><h3 id="3-I-O端口的编址"><a href="#3-I-O端口的编址" class="headerlink" title="3. I/O端口的编址"></a>3. I/O端口的编址</h3><ol>
+<li>数据寄存器、状态寄存器和控制寄存器占有的I/O地址常依次被称为数据端口、状态端口和控制端口，用于保存数据、状态和控制信息</li>
+<li>两类编排形式</li>
+</ol>
+<ul>
+<li>I/O端口独立编址</li>
+</ul>
+<p><strong>优点</strong>：</p>
+<ul>
+<li>I/O端口的地址空间独立</li>
+<li>控制和地址译码电路相对简单</li>
+<li>专门的I/O指令使程序清晰易读</li>
+</ul>
+<p><strong>缺点</strong>：</p>
+<ul>
+<li>I/O指令没有存储器指令丰富</li>
+<li>I/O端口与存储器统一编址</li>
+</ul>
+<p><strong>优点：</strong></p>
+<ul>
+<li>不需要专门的I/O指令</li>
+<li>I/O数据存取与存储器数据存取一样灵活</li>
+</ul>
+<p><strong>缺点：</strong></p>
+<ul>
+<li>I/O端口要占去部分存储器地址空间</li>
+<li>程序不易阅读（不易分清访存和访问外设）</li>
+</ul>
+<h3 id="4-8088-8086的输入输出指令"><a href="#4-8088-8086的输入输出指令" class="headerlink" title="4. 8088/8086的输入输出指令"></a>4. 8088/8086的输入输出指令</h3><figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">输入指令</span><br><span class="line"><span class="keyword">IN</span> <span class="built_in">AL</span>,i8	<span class="comment">;字节输入，直接寻址</span></span><br><span class="line"><span class="keyword">IN</span> <span class="built_in">AL</span>,<span class="built_in">DX</span>	<span class="comment">;字节输入，间接寻址</span></span><br><span class="line"><span class="keyword">IN</span> <span class="built_in">AX</span>,i8	<span class="comment">;字输入，直接寻址</span></span><br><span class="line"><span class="keyword">IN</span> <span class="built_in">AX</span>,<span class="built_in">DX</span>	<span class="comment">;字输入，间接寻址</span></span><br><span class="line">输出指令</span><br><span class="line"><span class="keyword">OUT</span> i8,<span class="built_in">AL</span>	<span class="comment">;字节输出，直接寻址</span></span><br><span class="line"><span class="keyword">OUT</span> <span class="built_in">DX</span>,<span class="built_in">AL</span>	<span class="comment">;字节输出，间接寻址</span></span><br><span class="line"><span class="keyword">OUT</span> i8,<span class="built_in">AX</span>	<span class="comment">;字输出，直接寻址</span></span><br><span class="line"><span class="keyword">OUT</span> <span class="built_in">DX</span>,<span class="built_in">AX</span>	<span class="comment">;字输出，间接寻址</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="1-8088-8086的I-O端口"><a href="#1-8088-8086的I-O端口" class="headerlink" title="1. 8088/8086的I/O端口"></a>1. 8088/8086的I/O端口</h5><ul>
+<li>8086用于寻址外设端口的地址线为16条，端口最多为216＝65536（64K）个，端口号（端口地址）为0000H ~ FFFFH</li>
+<li>每个端口地址对应一个字节空间</li>
+</ul>
+<ol>
+<li>寻址方式</li>
+</ol>
+<ul>
+<li>直接寻址：只用于寻址00H ~ FFH前256个端口，操作数i8表示端口号</li>
+<li>间接寻址：可用于寻址全部64K个端口，DX寄存器的值就是端口号，对端口号大于FFH的端口只能采用间接寻址方式</li>
+</ul>
+<ol>
+<li>数据交换</li>
+</ol>
+<ul>
+<li>如果输入输出一个字节，使用AL寄存器</li>
+<li>如果输入输出一个字，使用AX寄存器</li>
+</ul>
+<h3 id="5-I-O地址的译码"><a href="#5-I-O地址的译码" class="headerlink" title="5. I/O地址的译码"></a>5. I/O地址的译码</h3><h3 id="6-数据传送方式"><a href="#6-数据传送方式" class="headerlink" title="6. 数据传送方式"></a>6. 数据传送方式</h3><ul>
+<li>程序控制下的数据传送：通过CPU执行程序中的I/O指令来完成传送，又分为：<strong>无条件传送、查询传送、中断传送</strong></li>
+<li>直接存储器存取（DMA）——传送请求由外设向DMA控制器（DMAC）提出，后者向CPU申请总线，最后DMAC利用系统总线来完成外设和存储器间的数据传送</li>
+<li>I/O处理机——CPU委托专门的I/O处理机来管理外设，完成传送和相应的数据处理</li>
+</ul>
+<h4 id="1-无条件传送方式及其接口"><a href="#1-无条件传送方式及其接口" class="headerlink" title="1. 无条件传送方式及其接口"></a>1. 无条件传送方式及其接口</h4><ul>
+<li>在CPU与慢速变化的设备（或简单设备）交换数据时，可以认为它们总是<strong>处于“就绪”状态</strong>，随时可以进行数据传送</li>
+<li>适合于简单设备，如LED数码管、开关等</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">next:	mov dx,8000h	;DX指向数据端口</span><br><span class="line">		in al,dx	;从输入端口读开关状态</span><br><span class="line">		not al	;反相</span><br><span class="line">		out dx,al	;送输出端口显示</span><br><span class="line">		call delay	;调子程序延时</span><br><span class="line">		jmp next	;重复</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="2-查询传送方式及其接口"><a href="#2-查询传送方式及其接口" class="headerlink" title="2. 查询传送方式及其接口"></a>2. 查询传送方式及其接口</h5><ul>
+<li>CPU需要先了解（<strong>查询</strong>）外设的工作状态，然后在外设可以交换信息的情况下（就绪）实现数据输入或输出</li>
+<li>对多个外设的情况，则CPU按一定顺序依次查询（<strong>轮询</strong>）</li>
+<li>查询传送的特点是：工作可靠，适用面宽，但传送效率低</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">//查询输入接口程序示例</span><br><span class="line">	mov dx,8000h	;DX指向状态端口</span><br><span class="line">    status:	in al,dx	;读状态端口</span><br><span class="line">	test al,01h	;测试标志位D0</span><br><span class="line">	jz status	;D0＝0，未就绪，继续查询</span><br><span class="line">	inc dx	;D0＝1，就绪，DX指向数据端口</span><br><span class="line">	in al,dx	;从数据端口输入数据</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">//查询输出接口程序示例</span><br><span class="line">  mov dx,8000h	;DX指向状态端口</span><br><span class="line">  status:	in al,dx	;读取状态端口的状态数据</span><br><span class="line">	test al,80h	;测试标志位D7</span><br><span class="line">	jnz status	;D7＝1，未就绪，继续查询</span><br><span class="line">	inc dx	;D7＝0，就绪，DX指向数据端口</span><br><span class="line">	mov al,buf	;变量buf送AL</span><br><span class="line">	out dx,al	;将数据输出给数据端口</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//查询方式的EEPROM编程</span><br><span class="line">next:	mov al,55h	;写入内容＝55H</span><br><span class="line">		mov [bx],al	;写入存储单元</span><br><span class="line">		nop	;空操作指令，起延时作用</span><br><span class="line">		nop</span><br><span class="line">next1:	in al,dx	;查询状态口</span><br><span class="line">		test al,01h	;测试D0</span><br><span class="line">		jz next1	;D0＝0，芯片还在写入</span><br><span class="line">		inc bx	;D0＝1，写毕，指针移动</span><br><span class="line">		loop next	;循环至全部字节写完</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="3-中断传送方式"><a href="#3-中断传送方式" class="headerlink" title="3. 中断传送方式"></a>3. 中断传送方式</h5><ul>
+<li>中断请求 =&gt;中断响应=&gt;关中断=&gt;断点保护=&gt;中断识别=&gt;现场保护=&gt;中断服务=&gt;恢复现场=&gt;开中断=&gt;中断返回</li>
+<li>中断传送是一种效率更高的程序传送方式</li>
+<li>进行传送的中断服务程序是预先设计好的</li>
+<li>中断请求是外设随机向CPU提出的</li>
+</ul>
+<h5 id="4-DMA传送方式"><a href="#4-DMA传送方式" class="headerlink" title="4. DMA传送方式"></a>4. DMA传送方式</h5><ul>
+<li>CPU对DMA控制器进行初始化设置</li>
+<li>外设、DMAC和CPU三者通过应答信号建立联系：CPU将总线交给DMAC控制</li>
+</ul>
+<ol>
+<li>DMA传送<br>DMA读存储器：存储器 → 外设<br>DMA写存储器：存储器 ← 外设</li>
+<li>自动增减地址和计数，判断传送完成否</li>
+</ol>
+<p><strong>传送方式的比较</strong></p>
+<ul>
+<li>无条件传送：慢速外设需与CPU保持同步</li>
+<li>查询传送： 简单实用，效率较低</li>
+<li>中断传送：外设主动，可与CPU并行工作，但每次传送需要大量额外时间开销</li>
+<li>DMA传送：DMAC控制，外设直接和存储器进行数据传送，适合大量、快速数据传送</li>
+</ul>
+<hr>
+<h2 id="第四章-中断控制接口"><a href="#第四章-中断控制接口" class="headerlink" title="第四章 中断控制接口"></a>第四章 中断控制接口</h2><h3 id="1-8088中断系统"><a href="#1-8088中断系统" class="headerlink" title="1. 8088中断系统"></a>1. 8088中断系统</h3><ul>
+<li>8088的中断系统采用向量中断机制</li>
+<li>能够处理256个中断</li>
+<li>用中断向量号0～255区别</li>
+<li>可屏蔽中断还需要借助专用中断控制器Intel 8259A实现优先权管理</li>
+</ul>
+<h5 id="1-8088的中断类型"><a href="#1-8088的中断类型" class="headerlink" title="1. 8088的中断类型"></a>1. 8088的中断类型</h5><ul>
+<li>内部中断:除法错中断、指令中断、溢出中断、单步中断</li>
+<li>外部中断：非屏蔽中断、可屏蔽中断</li>
+</ul>
+<h5 id="2-8088的中断响应过程"><a href="#2-8088的中断响应过程" class="headerlink" title="2. 8088的中断响应过程"></a>2. 8088的中断响应过程</h5><p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/image/04.png" alt="04"></p>
+<ul>
+<li>8088各种中断源的优先权，实际上是指被识别出来的先后</li>
+<li>多种中断同时请求时，最先响应的则可能是单步中断或NMI中断</li>
+</ul>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/image/05.png" alt="05"></p>
+<h5 id="3-8088的中断向量表"><a href="#3-8088的中断向量表" class="headerlink" title="3. 8088的中断向量表"></a>3. 8088的中断向量表</h5><ul>
+<li>中断向量：中断服务程序的入口地址（首地址）</li>
+<li>逻辑地址含有段地址CS和偏移地址IP（32位）</li>
+<li>每个中断向量的低字是偏移地址、高字是段地址，需占用4个字节</li>
+<li>8088微处理器从物理地址00000H开始，依次安排各个中断向量，向量号也从0开始</li>
+<li>256个中断占用1KB区域，就形成中断向量表</li>
+<li>向量号为N的中断向量的物理地址＝N×4</li>
+</ul>
+<h3 id="2-内部中断服务程序"><a href="#2-内部中断服务程序" class="headerlink" title="2. 内部中断服务程序"></a>2. 内部中断服务程序</h3><h5 id="1-内部中断服务程序"><a href="#1-内部中断服务程序" class="headerlink" title="1. 内部中断服务程序"></a>1. 内部中断服务程序</h5><p>编写80H号中断服务程序<br>功能：显示以“0”结尾字符串的功能,利用显示器功能调用INT 10H，字符串缓冲区首地址为入口参数，DS:DX（段地址：偏移地址）传递参数</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">    intoff	dw ?//偏移</span><br><span class="line">	intseg	dw ?//段基址</span><br><span class="line">	intmsg	db ‘A Instruction Interrupt !’//字符串</span><br><span class="line">	db 0dh,0ah,0</span><br><span class="line">	//保存中断向量</span><br><span class="line">    mov ax,3580h//AH＝35H，AL=中断向量号</span><br><span class="line">	int 21h //DOS功能调用INT 21H</span><br><span class="line">	mov intoff,bx	;保存偏移地址</span><br><span class="line">	mov intseg,es	;保存段基地址</span><br><span class="line">    //设置中断向量</span><br><span class="line">    //设置中断向量（DOS功能调用INT 21H）</span><br><span class="line">    push ds</span><br><span class="line">    mov dx,offset new80h</span><br><span class="line">    mov ax,seg new80h</span><br><span class="line">    mov ds,ax</span><br><span class="line">    mov ax,2580h//AH=25，AL＝中断向量号</span><br><span class="line">    int 21h</span><br><span class="line">    pop ds</span><br><span class="line">    //调用中断服务程序，设置入口参数：	//DS＝段地址（已设置）</span><br><span class="line">//；	DX＝偏移地址</span><br><span class="line">    mov dx,offset intmsg</span><br><span class="line">	int 80h 	；调用80H中断服务程序</span><br><span class="line">//主程序结束</span><br><span class="line">    mov dx,intoff</span><br><span class="line">	mov ax,intseg</span><br><span class="line">	mov ds,ax</span><br><span class="line">	mov ax,2580h</span><br><span class="line">	int 21h</span><br><span class="line">	mov ax,4c00h</span><br><span class="line">	int 21h</span><br><span class="line">//进入中断服务程序</span><br><span class="line">new80h	proc</span><br><span class="line">	sti	;开中断</span><br><span class="line">	push ax	;保护寄存器</span><br><span class="line">	push bx</span><br><span class="line">	push si</span><br><span class="line">	mov si,dx</span><br><span class="line">	//显示字符串</span><br><span class="line">new1:mov al,[si]</span><br><span class="line">	cmp al,0</span><br><span class="line">	jz new2</span><br><span class="line">	mov bx,0</span><br><span class="line">	mov ah,0eh</span><br><span class="line">	int 10h</span><br><span class="line">	inc si</span><br><span class="line">	jmp new1</span><br><span class="line">	//退出中断服务程序</span><br><span class="line">	new2:	pop si	;恢复寄存器</span><br><span class="line">		pop bx</span><br><span class="line">		pop ax</span><br><span class="line">		iret	;中断返回</span><br><span class="line">	new80h	endp</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="3-8259A中断控制器"><a href="#3-8259A中断控制器" class="headerlink" title="3. 8259A中断控制器"></a>3. 8259A中断控制器</h3><h5 id="1-8259A的内部结构和引脚"><a href="#1-8259A的内部结构和引脚" class="headerlink" title="1. 8259A的内部结构和引脚"></a>1. 8259A的内部结构和引脚</h5><ol>
+<li>中断控制</li>
+</ol>
+<ul>
+<li>中断请求寄存器IRR<br>保存8条外界中断请求信号IR0～IR7的请求状态<br>Di位为1表示IRi引脚有中断请求；为0表示无请求</li>
+<li>中断服务寄存器ISR<br>保存正在被8259A服务着的中断状态<br>Di位为1表示IRi中断正在服务中；为0表示没有被服务</li>
+<li>中断屏蔽寄存器IMR<br>保存对中断请求信号IR的屏蔽状态<br>Di位为1表示IRi中断被屏蔽（禁止）；为0表示允许</li>
+</ul>
+<ol>
+<li>与处理器接口</li>
+</ol>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/image/06.png" alt="06"></p>
+<ol>
+<li>中断级连</li>
+</ol>
+<ul>
+<li>一个系统中，8259A可以级连，有一个主8259A，若干个（最多8个）从8259A</li>
+<li>级连时，主8259A的三条级连线CAS0～CAS2作为输出线，连至每个从8259A的CAS0～CAS2</li>
+<li>SP<em>/EN</em>在非缓冲方式下，规定该8259A是主片（SP<em>＝1）还是从片（SP</em>＝0）</li>
+</ul>
+<h5 id="3-8259A的工作方式"><a href="#3-8259A的工作方式" class="headerlink" title="3. 8259A的工作方式"></a>3. 8259A的工作方式</h5><ol>
+<li>设置优先权方式</li>
+</ol>
+<ul>
+<li>普通全嵌套方式</li>
+<li>特殊全嵌套方式</li>
+<li>优先权自动循环方式</li>
+</ul>
+<ol>
+<li>结束中断处理方式</li>
+</ol>
+<ul>
+<li>8259A利用中断服务寄存器ISR判断：<br>某位为1，表示正在进行中断服务；<br>该位为0，就是该中断结束服务。</li>
+<li>自动中断结束方式</li>
+<li>普通中断结束方式，配合全嵌套优先权方式使用</li>
+<li>特殊中断结束方式，配合循环优先权方式使用</li>
+</ul>
+<ol>
+<li>屏蔽中断源方式</li>
+</ol>
+<ul>
+<li>普通屏蔽方式<br>将IMR的Di位置1，则对应的中断IRi被屏蔽</li>
+<li>特殊屏蔽方式<br>将IMR的Di位置1，对应的中断IRi被屏蔽的同时，使ISR的Di位置0</li>
+</ul>
+<ol>
+<li>中断触发方式</li>
+</ol>
+<ul>
+<li>边沿触发方式</li>
+<li>电平触发方式</li>
+</ul>
+<ol>
+<li>数据线连接方式</li>
+</ol>
+<ul>
+<li>缓冲方式<br>8259A的数据线需加缓冲器予以驱动<br>8259A把SP<em>/EN</em>引脚作为输出端，输出允许信号，用以锁存或开启缓冲器</li>
+<li>非缓冲方式<br>SP<em>/EN</em>引脚为输入端<br>若8259A级连，由其确定是主片或从片</li>
+</ul>
+<h5 id="4-8259A的编程"><a href="#4-8259A的编程" class="headerlink" title="4. 8259A的编程"></a>4. 8259A的编程</h5><ol>
+<li>初始化命令字ICW</li>
+</ol>
+<ul>
+<li>初始化命令字ICW最多有4个</li>
+<li>8259A在开始工作前必须写入</li>
+<li>必须按照ICW1～ICW4顺序写入</li>
+<li>ICW1和ICW2是必须送的</li>
+<li>ICW3和ICW4由工作方式决定</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">中断控制器的初始化程序段</span><br><span class="line">//初始化主片8259A</span><br><span class="line">		mov al,11h	;写入ICW1</span><br><span class="line">		out 20h,al</span><br><span class="line">		jmp intr1</span><br><span class="line">intr1:	mov al,08h	;写入ICW2</span><br><span class="line">		out 21h,al</span><br><span class="line">		jmp intr2</span><br><span class="line">intr2:	mov al,04h	;写入ICW3</span><br><span class="line">		out 21h,al</span><br><span class="line">		jmp intr3</span><br><span class="line">intr3:	mov al,1h	;写入ICW4</span><br><span class="line">		out 21h,al</span><br><span class="line">//初始化从片8259A</span><br><span class="line">		mov al,11h	;写入ICW1</span><br><span class="line">		out 0a0h,al</span><br><span class="line">		jmp intr5</span><br><span class="line">intr5:	mov al,70h	;写入ICW2</span><br><span class="line">		out 0a1h,al</span><br><span class="line">		jmp intr6</span><br><span class="line">intr6:	mov al,02h	;写入ICW3</span><br><span class="line">		out 0a1h,al</span><br><span class="line">		jmp intr7</span><br><span class="line">intr7:	mov al, 01h	;写入ICW4</span><br><span class="line">		out 0a1h,al</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ol>
+<li>操作命令字OCW</li>
+</ol>
+<ul>
+<li>OCW共有3个：OCW1～OCW3</li>
+<li>写入时没有顺序要求，需要哪个OCW就写入那个OCW</li>
+</ul>
+<p><strong>应用注意事项</strong></p>
+<ul>
+<li>利用上升沿做为中断请求IRQ的有效信号</li>
+<li>IRQ0～IRQ7的中断向量号依次为08H～0FH，IRQ8～IRQ15依次为70H～77H</li>
+<li>采用普通全嵌套优先权方式，中断优先权从高到低顺序为IRQ0～IRQ2、IRQ8～IRQ15、IRQ3～IRQ7，且不能改变</li>
+</ul>
+<h5 id="5-外部中断服务程序"><a href="#5-外部中断服务程序" class="headerlink" title="5. 外部中断服务程序"></a>5. 外部中断服务程序</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br></pre></td><td class="code"><pre><span class="line">/*8259A的IRQ0（向量号为08H）中断请求来自定时器8253，每隔55ms产生一次</span><br><span class="line"></span><br><span class="line">本程序的08H号中断服务程序，每次中断显示一串信息，显示10次</span><br><span class="line">*/</span><br><span class="line">	intmsg	db ‘A 8259A Interrupt !’</span><br><span class="line">		         db 0dh,0ah,0</span><br><span class="line">	counter	db 0</span><br><span class="line">	mov ax,3508h</span><br><span class="line">	int 21h</span><br><span class="line">	push bx	;保存偏移地址</span><br><span class="line">	push es	;保存段基地址</span><br><span class="line">	//设置中断向量</span><br><span class="line">		cli</span><br><span class="line">		push ds</span><br><span class="line">		mov dx,offset new08h</span><br><span class="line">		mov ax,seg new08h</span><br><span class="line">		mov ds,ax</span><br><span class="line">		mov ax,2508h</span><br><span class="line">		int 21h</span><br><span class="line">		pop ds</span><br><span class="line">		//设置中断寄存器</span><br><span class="line">		in al,21h</span><br><span class="line">		push ax</span><br><span class="line">		and al,0feh	         ;允许IRQ0</span><br><span class="line">		out 21h,al</span><br><span class="line">		mov counter,0	;设置中断次数初值</span><br><span class="line">		sti		         ;开中断</span><br><span class="line">		//循环等待中断</span><br><span class="line">start1:	cmp counter,10</span><br><span class="line">		 jb start1	          ;中断10次退出</span><br><span class="line">		 //子程序结束</span><br><span class="line">		 		cli</span><br><span class="line">		pop ax</span><br><span class="line">		out 21h,al</span><br><span class="line">		pop dx</span><br><span class="line">		pop ds</span><br><span class="line">		mov ax,2508h</span><br><span class="line">		int 21h</span><br><span class="line">		sti</span><br><span class="line">		mov ax,4c00h</span><br><span class="line">		int 21h</span><br><span class="line">        //进入中断服务程序</span><br><span class="line">new08h	proc</span><br><span class="line">		  sti	         ;开中断</span><br><span class="line">		  push ax	;保护寄存器</span><br><span class="line">		  push bx</span><br><span class="line">		  push ds</span><br><span class="line">		  mov ax,data</span><br><span class="line">		  mov ds,ax	;设置数据段DS</span><br><span class="line">//中断处理</span><br><span class="line">		inc counter</span><br><span class="line">		mov si,offset intmsg	;显示信息</span><br><span class="line">		call dpstri</span><br><span class="line">//</span><br><span class="line">		     mov al,20h</span><br><span class="line">		     out 20h,al</span><br><span class="line">		     pop ds	       ;恢复寄存器</span><br><span class="line">		     pop bx</span><br><span class="line">		     pop ax</span><br><span class="line">		     iret	       ;中断返回</span><br><span class="line">new08h endp</span><br><span class="line">//显示字符串</span><br><span class="line">dpstri proc	        ;显示字符串子程序</span><br><span class="line">		 push ax</span><br><span class="line">		 push bx</span><br><span class="line">dps1:	 lodsb</span><br><span class="line">		 cmp al,0</span><br><span class="line">		 jz dps2</span><br><span class="line">//显示字符串</span><br><span class="line">		 mov bx,0</span><br><span class="line">		 mov ah,0eh</span><br><span class="line">		 int 10h</span><br><span class="line">		 jmp dps1</span><br><span class="line">dps2:	 pop bx</span><br><span class="line">		 pop ax</span><br><span class="line">		 ret</span><br><span class="line">dpstri endp</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="第五章-定时计数控制接口"><a href="#第五章-定时计数控制接口" class="headerlink" title="第五章 定时计数控制接口"></a>第五章 定时计数控制接口</h2><h3 id="8253-8254定时计数器"><a href="#8253-8254定时计数器" class="headerlink" title="8253/8254定时计数器"></a>8253/8254定时计数器</h3><ul>
+<li>3个独立的16位计数器通道</li>
+<li>每个计数器有6种工作方式</li>
+<li>按二进制或十进制（BCD码）计数</li>
+</ul>
+<ol>
+<li>计数器结构分析</li>
+</ol>
+<ul>
+<li>计数初值存于预置寄存器；</li>
+<li>在计数过程中，减法计数器的值不断递减，而预置寄存器中的预置不变。</li>
+<li>输出锁存器用于写入锁存命令时，锁定当前计数值</li>
+</ul>
+<ol>
+<li>计数器的3个引脚</li>
+</ol>
+<ul>
+<li>CLK时钟输入信号——在计数过程中，此引脚上每输入一个时钟信号（下降沿），计数器的计数值减1</li>
+<li>GATE门控输入信号——控制计数器工作，可分成电平控制和上升沿控制两种类型</li>
+<li>OUT计数器输出信号——当一次计数过程结束（计数值减为0），OUT引脚上将产生一个输出信号</li>
+</ul>
+<h3 id="8253-8254的工作方式"><a href="#8253-8254的工作方式" class="headerlink" title="8253/8254的工作方式"></a>8253/8254的工作方式</h3><ul>
+<li>方式0 计数结束中断</li>
+<li>方式1 可编程单稳脉冲</li>
+<li>方式2 频率发生器（分频器）</li>
+<li>方式3 方波发生器</li>
+<li>方式4 软件触发选通信号</li>
+<li>方式5 硬件触发选通信号</li>
+</ul>
+<ol>
+<li>注意</li>
+</ol>
+<ul>
+<li>处理器写入8253的计数初值只是写入了预置寄存器，之后到来的第一个CLK输入脉冲（需先由低电平变高，再由高变低）才将预置寄存器的初值送到减1计数器。</li>
+<li>从第二个CLK信号的下降沿，计数器才真正开始减1计数。</li>
+</ul>
+<h3 id="8253-8254的编程"><a href="#8253-8254的编程" class="headerlink" title="8253/8254的编程"></a>8253/8254的编程</h3><hr>
+<h2 id="第六章-DMA控制接口"><a href="#第六章-DMA控制接口" class="headerlink" title="第六章 DMA控制接口"></a>第六章 DMA控制接口</h2><h3 id="DMA控制器8237A"><a href="#DMA控制器8237A" class="headerlink" title="DMA控制器8237A"></a>DMA控制器8237A</h3><ul>
+<li>每个8237A芯片有4个DMA通道，就是有4个DMA控制器</li>
+<li>每个DMA通道具有不同的优先权</li>
+<li>每个DMA通道可以分别允许和禁止</li>
+<li>每个DMA通道有4种工作方式</li>
+<li>一次传送的最大长度可达64KB</li>
+<li>多个8237A芯片可以级连，扩展通道数</li>
+</ul>
+<h5 id="1-8237A的内部结构和引脚"><a href="#1-8237A的内部结构和引脚" class="headerlink" title="1. 8237A的内部结构和引脚"></a>1. 8237A的内部结构和引脚</h5><ol>
+<li>请求与响应信号</li>
+</ol>
+<ul>
+<li>DREQ0～DREQ3：DMA通道请求</li>
+<li>HRQ：总线请求</li>
+<li>HLDA：总线响应</li>
+<li>DACK0～DACK3：DMA通道响应</li>
+</ul>
+<ol>
+<li>DMA传送控制信号</li>
+</ol>
+<ul>
+<li>A0～A7：地址线。输出低8位存储器地址。<br>DB0～DB7：数据线。输出高8位存储器地址</li>
+<li>ADSTB：地址选通</li>
+<li>AEN：地址允许。</li>
+<li>MEMR*：存储器读</li>
+<li>MEMW*：存储器写</li>
+<li>IOR*：I/O读</li>
+<li>IOW*：I/O写</li>
+<li>READY：准备好</li>
+<li>EOP*：过程结束。DMA传送过程结束，输出一个低有效脉冲。</li>
+</ul>
+<ol>
+<li>处理器接口信号</li>
+</ol>
+<ul>
+<li>DB0～DB7：数据线。</li>
+<li>A0～A3：地址线。</li>
+<li>CS*：片选</li>
+<li>IOR*：I/O读。读取8237A内部寄存器。</li>
+<li>IOW*：I/O写。写入8237A内部寄存器。</li>
+<li>CLK：时钟。控制芯片内部操作和数据传输。</li>
+<li>RESET：复位。使8237A处于初始状态。</li>
+</ul>
+<p><strong>8237A的两种工作状态</strong></p>
+<ul>
+<li>空闲周期：<br>作为接口电路，受CPU控制的工作状态</li>
+<li>有效周期：<br>作为DMAC控制DMA传送的工作状态</li>
+</ul>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/image/07.png" alt="07"></p>
+<h5 id="2-8237A的工作时序·空闲周期"><a href="#2-8237A的工作时序·空闲周期" class="headerlink" title="2. 8237A的工作时序·空闲周期"></a>2. 8237A的工作时序·空闲周期</h5><p><strong>DMA传送时序</strong></p>
+<ul>
+<li>S1状态——输出16位存储器地址<br>AEN输出高电平，表示DMA传送</li>
+<li>S2状态——输出DMA响应信号和控制信号<br>DMA读：MEMR<em>和IOW</em>有效<br>DMA写：IOR<em>和MEMW</em>有效</li>
+<li>S3和Sw状态——检测数据传送是否能够完成，决定是否插入等待状态Sw</li>
+<li>S4状态——完成数据传送</li>
+</ul>
+<h5 id="3-8237A的工作方式"><a href="#3-8237A的工作方式" class="headerlink" title="3. 8237A的工作方式"></a>3. 8237A的工作方式</h5><ol>
+<li>DMA传送方式</li>
+</ol>
+<ul>
+<li>单字节传送方式：一次传送一个字节，效率略低，<br>DMA传送之间CPU有机会重新获取总线控制权</li>
+<li>数据块传送方式：一次请求传送一个数据块，效率高，<br>整个DMA传送期间CPU长时间无法控制总线</li>
+<li>请求传送方式<br>DREQ信号有效就连续传送数据<br>DREQ信号无效，DMA传送被暂时中止，8237A释放总线，CPU可继续操作</li>
+<li>级连方式</li>
+</ul>
+<ol>
+<li>DMA传送类型<br>· DMA读 · DMA写 · DMA检验</li>
+<li>DMA通道的优先权方式</li>
+</ol>
+<ul>
+<li>固定优先权方式——优先权固定：0，1，2.。。</li>
+<li>循环优先权方式——优先权循环变化</li>
+</ul>
+<ol>
+<li>自动初始化方式</li>
+</ol>
+<h5 id="4-8237A的寄存器"><a href="#4-8237A的寄存器" class="headerlink" title="4. 8237A的寄存器"></a>4. 8237A的寄存器</h5><ol>
+<li>通道寄存器（4个通道分别具有）：基地址寄存器、基字节数寄存器、现行地址寄存器、现行字节数寄存器。</li>
+<li>状态、命令寄存器：命令寄存器、状态寄存器、请求寄存器、方式寄存器、屏蔽寄存器、临时寄存器</li>
+</ol>
+</article><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"><div class="post-reward" onclick="anzhiyu.addRewardMask()"><div class="reward-button button--animated" title="赞赏作者"><i class="anzhiyufont anzhiyu-icon-hand-heart-fill"></i>打赏作者</div><div class="reward-main"><div class="reward-all"><span class="reward-title">感谢你赐予我前进的力量</span><ul class="reward-group"><li class="reward-item"><a href="/AlanCarte/AlanCarte.github.io/project/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" src="/AlanCarte/AlanCarte.github.io/project/img/wechat.jpg" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/AlanCarte/AlanCarte.github.io/project/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" src="/AlanCarte/AlanCarte.github.io/project/img/alipay.jpg" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul><a class="reward-main-btn" href="/about/#about-reward" target="_blank"><div class="reward-text">赞赏者名单</div><div class="reward-dec">因为你们的支持让我意识到写文章的价值🙏</div></a></div></div></div><div id="quit-box" onclick="anzhiyu.removeRewardMask()" style="display: none"></div></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="https://github.com/AlanCarte/AlanCarte.github.io/project/2023/06/15/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=微机原理与接口技术&amp;url=https://github.com/AlanCarte/AlanCarte.github.io/project/2023/06/15/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF/&amp;pic=https://pic-1318708771.cos.ap-beijing.myqcloud.com/test/202306272036912.webp" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="rm.copyPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/AlanCarte/AlanCarte.github.io/project/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>学习笔记<span class="tagsPageCount">1</span></a></div></div></div><div class="post_share"><div class="addthis_inline_share_toolbox"></div><script src="//s7.addthis.com/js/300/addthis_widget.js#pubid=null" async="async"></script></div></div></div><div class="post-copyright"><i class="anzhiyufont anzhiyu-icon-copyright"></i><div class="post-copyright__author"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="https://github.com/AlanCarte/AlanCarte.github.io/project/2023/06/15/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF/">原创</a><a class="post-copyright-title"><span>微机原理与接口技术</span></a></div><div class="post-copyright-info-box"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"></span><a class="link" href="https://github.com/AlanCarte/AlanCarte.github.io/project">Alan</a></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a class="link" href="https://github.com/AlanCarte/AlanCarte.github.io/project/2023/06/15/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF/">https://github.com/AlanCarte/AlanCarte.github.io/project/2023/06/15/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF/</a></span><span class="copy-button" onclick="rm.copyPageUrl('https://github.com/AlanCarte/AlanCarte.github.io/project/2023/06/15/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF/)'"><i class="anzhiyufont anzhiyu-icon-copy"></i></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://github.com/AlanCarte/AlanCarte.github.io/project" target="_blank">Alan-Blog</a>！</span></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/AlanCarte/AlanCarte.github.io/project/2023/06/20/MyBatis%E5%9F%BA%E7%A1%80%E4%BA%BA%E7%AF%87/"><img class="next-cover" src="https://pic-1318708771.cos.ap-beijing.myqcloud.com/test/202306281444730.png" onerror="onerror=null;src='/AlanCarte/AlanCarte.github.io/project/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">MyBatis基础入门篇</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="anzhiyufont anzhiyu-icon-comments"></i><span> 评论</span></div><div class="comment-randomInfo"><a onclick="anzhiyu.addRandomCommentInfo()" href="javascript:void(0)">匿名评论</a></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div><div class="comment-barrage"></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="author-info-top"> <div class="card-info-avatar"><div class="author-status-box"><div class="author-status"><g-emoji class="g-emoji" alias="writing_hand" fallback-src="https://nopic-1318708771.cos.ap-beijing.myqcloud.com/test/202306211636064.png">✍️</g-emoji><span>on Studying</span></div></div></div></div><div class="author-info__sayhi" id="author-info__sayhi"></div><h1 class="author-info__name">Alan</h1><div class="author-info__description"><div id="author-info_description"> Alan的小站~ <br>希望可以帮助到你 </div></div><div class="banner-button-group"><a class="banner-button" onclick="pjax.loadUrl(&quot;/about/&quot;)"><span class="banner-button-text">了解更多</span><i class="anzhiyufont anzhiyu-icon-arrow-circle-right" style="font-size: 1.5rem"></i></a></div><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="https://github.com/AlanCarte" target="_blank" title="Github"><i class="anzhiyufont anzhiyu-icon-github"></i></a><a class="social-icon faa-parent animated-hover" href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=292933314@qq.com" target="_blank" title="Email"><i class="anzhiyufont anzhiyu-icon-envelope"></i></a><a class="social-icon faa-parent animated-hover" href="tencent://Message/?Uin=292933314&amp;amp;websiteName=local.edu.com:8888=&amp;amp;Menu=yes" target="_blank" title="QQ"><i class="anzhiyufont anzhiyu-icon-qq"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bullhorn anzhiyu-shake"></i><span>公告</span></div><div class="announcement_content"><div id="welcome-info"></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF"><span class="toc-number">1.</span> <span class="toc-text">微机原理与接口技术</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E5%BE%AE%E5%9E%8B%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E6%A6%82%E8%BF%B0"><span class="toc-number">1.1.</span> <span class="toc-text">第一章 微型计算机系统概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%BE%AE%E5%9E%8B%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%84%E6%88%90"><span class="toc-number">1.1.1.</span> <span class="toc-text">1. 微型计算机系统组成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%B3%BB%E7%BB%9F%E6%80%BB%E7%BA%BF"><span class="toc-number">1.1.2.</span> <span class="toc-text">2. 系统总线</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%9F%BA%E4%BA%8E8088CPU%E7%9A%84PC%E5%BE%AE%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84"><span class="toc-number">1.1.3.</span> <span class="toc-text">3. 基于8088CPU的PC微机系统结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%BE%AE%E5%A4%84%E7%90%86%E5%99%A8%EF%BC%88CPU%EF%BC%89%E5%86%85%E9%83%A8%E7%BB%93%E6%9E%84"><span class="toc-number">1.1.4.</span> <span class="toc-text">4. 微处理器（CPU）内部结构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8088-CPU-%E5%A4%96%E9%83%A8%E7%89%B9%E6%80%A7%E4%B8%8EIBM-PC%E6%80%BB%E7%BA%BF%E7%BB%93%E6%9E%84"><span class="toc-number">1.2.</span> <span class="toc-text">8088 CPU 外部特性与IBM PC总线结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-8088%E7%9A%84%E4%B8%A4%E7%A7%8D%E7%BB%84%E6%80%81%E6%A8%A1%E5%BC%8F"><span class="toc-number">1.2.1.</span> <span class="toc-text">1. 8088的两种组态模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-8088%E6%9C%80%E5%B0%8F%E7%BB%84%E6%80%81%E7%9A%84%E5%BC%95%E8%84%9A%E4%BF%A1%E5%8F%B7"><span class="toc-number">1.2.2.</span> <span class="toc-text">2. 8088最小组态的引脚信号</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E6%95%B0%E6%8D%AE%E5%92%8C%E5%9C%B0%E5%9D%80%E5%BC%95%E8%84%9A"><span class="toc-number">1.2.2.0.1.</span> <span class="toc-text">1. 数据和地址引脚</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E8%AF%BB%E5%86%99%E6%8E%A7%E5%88%B6%E5%BC%95%E8%84%9A"><span class="toc-number">1.2.2.0.2.</span> <span class="toc-text">2. 读写控制引脚</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E4%B8%AD%E6%96%AD%E8%AF%B7%E6%B1%82%E5%92%8C%E5%93%8D%E5%BA%94%E5%BC%95%E8%84%9A"><span class="toc-number">1.2.2.0.3.</span> <span class="toc-text">3. 中断请求和响应引脚</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-%E6%80%BB%E7%BA%BF%E8%AF%B7%E6%B1%82%E5%92%8C%E5%93%8D%E5%BA%94%E5%BC%95%E8%84%9A"><span class="toc-number">1.2.2.0.4.</span> <span class="toc-text">4. 总线请求和响应引脚</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-%E5%85%B6%E5%AE%83%E5%BC%95%E8%84%9A"><span class="toc-number">1.2.2.0.5.</span> <span class="toc-text">5. 其它引脚</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-8088%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%80%BB%E7%BA%BF%E6%97%B6%E5%BA%8F"><span class="toc-number">1.2.2.0.6.</span> <span class="toc-text">6. 8088的基本总线时序</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7-8088%E6%9C%80%E5%B0%8F%E7%BB%84%E6%80%81%E7%9A%84%E6%80%BB%E7%BA%BF%E6%97%B6%E5%BA%8F"><span class="toc-number">1.2.2.0.7.</span> <span class="toc-text">7. 8088最小组态的总线时序</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-8088%E6%9C%80%E5%A4%A7%E7%BB%84%E6%80%81%E4%B8%AD%E7%9A%84%E5%BC%95%E8%84%9A%E5%AE%9A%E4%B9%89"><span class="toc-number">1.2.2.0.8.</span> <span class="toc-text">8. 8088最大组态中的引脚定义</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#9-8088%E6%9C%80%E5%A4%A7%E7%BB%84%E6%80%81%E7%9A%84%E6%80%BB%E7%BA%BF%E5%BD%A2%E6%88%90"><span class="toc-number">1.2.2.0.9.</span> <span class="toc-text">9. 8088最大组态的总线形成</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%AD%98%E5%82%A8%E5%99%A8%E5%8F%8A%E6%8E%A5%E5%8F%A3"><span class="toc-number">1.3.</span> <span class="toc-text">第二章 半导体存储器及接口</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%AD%98%E5%82%A8%E5%99%A8%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-number">1.3.0.0.1.</span> <span class="toc-text">1. 半导体存储器的分类</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%AD%98%E5%82%A8%E5%99%A8%E8%8A%AF%E7%89%87%E7%9A%84%E5%86%85%E9%83%A8%E7%BB%93%E6%9E%84"><span class="toc-number">1.3.0.0.2.</span> <span class="toc-text">2. 半导体存储器芯片的内部结构</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-%E9%9A%8F%E6%9C%BA%E5%AD%98%E5%8F%96%E5%AD%98%E5%82%A8%E5%99%A8"><span class="toc-number">1.3.0.0.3.</span> <span class="toc-text">4. 随机存取存储器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-%E5%8F%AA%E8%AF%BB%E5%AD%98%E5%82%A8%E5%99%A8"><span class="toc-number">1.3.0.0.4.</span> <span class="toc-text">5. 只读存储器</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-%E5%8D%8A%E5%AF%BC%E4%BD%93%E5%AD%98%E5%82%A8%E5%99%A8%E4%B8%8ECPU%E7%9A%84%E8%BF%9E%E6%8E%A5"><span class="toc-number">1.3.0.0.5.</span> <span class="toc-text">6. 半导体存储器与CPU的连接</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7-%E5%AD%98%E5%82%A8%E8%8A%AF%E7%89%87%E4%B8%8ECPU%E7%9A%84%E9%85%8D%E5%90%88"><span class="toc-number">1.3.0.0.6.</span> <span class="toc-text">7. 存储芯片与CPU的配合</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#8-8086%E5%AD%98%E5%82%A8%E5%99%A8%E7%BB%84%E7%BB%87"><span class="toc-number">1.3.0.0.7.</span> <span class="toc-text">8. 8086存储器组织</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E5%9F%BA%E6%9C%AC%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%8E%A5%E5%8F%A3"><span class="toc-number">1.4.</span> <span class="toc-text">第三章 基本输入输出接口</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#I-O%E6%8E%A5%E5%8F%A3%E6%A6%82%E8%BF%B0"><span class="toc-number">1.4.1.</span> <span class="toc-text">I&#x2F;O接口概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#I-O%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%85%B8%E5%9E%8B%E7%BB%93%E6%9E%84"><span class="toc-number">1.4.2.</span> <span class="toc-text">I&#x2F;O接口的典型结构</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E6%8E%A5%E5%8F%A3%E7%94%B5%E8%B7%AF%E7%9A%84%E5%86%85%E9%83%A8%E7%BB%93%E6%9E%84"><span class="toc-number">1.4.2.0.1.</span> <span class="toc-text">1. 接口电路的内部结构</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E6%8E%A5%E5%8F%A3%E7%94%B5%E8%B7%AF%E7%9A%84%E5%A4%96%E9%83%A8%E7%89%B9%E6%80%A7"><span class="toc-number">1.4.2.0.2.</span> <span class="toc-text">2. 接口电路的外部特性</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E6%8E%A5%E5%8F%A3%E7%94%B5%E8%B7%AF%E8%8A%AF%E7%89%87%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-number">1.4.2.0.3.</span> <span class="toc-text">3. 接口电路芯片的分类</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-%E6%8E%A5%E5%8F%A3%E7%94%B5%E8%B7%AF%E7%9A%84%E5%8F%AF%E7%BC%96%E7%A8%8B%E6%80%A7"><span class="toc-number">1.4.2.0.4.</span> <span class="toc-text">4. 接口电路的可编程性</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-I-O%E7%AB%AF%E5%8F%A3%E7%9A%84%E7%BC%96%E5%9D%80"><span class="toc-number">1.4.3.</span> <span class="toc-text">3. I&#x2F;O端口的编址</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-8088-8086%E7%9A%84%E8%BE%93%E5%85%A5%E8%BE%93%E5%87%BA%E6%8C%87%E4%BB%A4"><span class="toc-number">1.4.4.</span> <span class="toc-text">4. 8088&#x2F;8086的输入输出指令</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-8088-8086%E7%9A%84I-O%E7%AB%AF%E5%8F%A3"><span class="toc-number">1.4.4.0.1.</span> <span class="toc-text">1. 8088&#x2F;8086的I&#x2F;O端口</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-I-O%E5%9C%B0%E5%9D%80%E7%9A%84%E8%AF%91%E7%A0%81"><span class="toc-number">1.4.5.</span> <span class="toc-text">5. I&#x2F;O地址的译码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%81%E6%96%B9%E5%BC%8F"><span class="toc-number">1.4.6.</span> <span class="toc-text">6. 数据传送方式</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E6%97%A0%E6%9D%A1%E4%BB%B6%E4%BC%A0%E9%80%81%E6%96%B9%E5%BC%8F%E5%8F%8A%E5%85%B6%E6%8E%A5%E5%8F%A3"><span class="toc-number">1.4.6.1.</span> <span class="toc-text">1. 无条件传送方式及其接口</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E6%9F%A5%E8%AF%A2%E4%BC%A0%E9%80%81%E6%96%B9%E5%BC%8F%E5%8F%8A%E5%85%B6%E6%8E%A5%E5%8F%A3"><span class="toc-number">1.4.6.1.1.</span> <span class="toc-text">2. 查询传送方式及其接口</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E4%B8%AD%E6%96%AD%E4%BC%A0%E9%80%81%E6%96%B9%E5%BC%8F"><span class="toc-number">1.4.6.1.2.</span> <span class="toc-text">3. 中断传送方式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-DMA%E4%BC%A0%E9%80%81%E6%96%B9%E5%BC%8F"><span class="toc-number">1.4.6.1.3.</span> <span class="toc-text">4. DMA传送方式</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E4%B8%AD%E6%96%AD%E6%8E%A7%E5%88%B6%E6%8E%A5%E5%8F%A3"><span class="toc-number">1.5.</span> <span class="toc-text">第四章 中断控制接口</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-8088%E4%B8%AD%E6%96%AD%E7%B3%BB%E7%BB%9F"><span class="toc-number">1.5.1.</span> <span class="toc-text">1. 8088中断系统</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-8088%E7%9A%84%E4%B8%AD%E6%96%AD%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.5.1.0.1.</span> <span class="toc-text">1. 8088的中断类型</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-8088%E7%9A%84%E4%B8%AD%E6%96%AD%E5%93%8D%E5%BA%94%E8%BF%87%E7%A8%8B"><span class="toc-number">1.5.1.0.2.</span> <span class="toc-text">2. 8088的中断响应过程</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-8088%E7%9A%84%E4%B8%AD%E6%96%AD%E5%90%91%E9%87%8F%E8%A1%A8"><span class="toc-number">1.5.1.0.3.</span> <span class="toc-text">3. 8088的中断向量表</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%86%85%E9%83%A8%E4%B8%AD%E6%96%AD%E6%9C%8D%E5%8A%A1%E7%A8%8B%E5%BA%8F"><span class="toc-number">1.5.2.</span> <span class="toc-text">2. 内部中断服务程序</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E5%86%85%E9%83%A8%E4%B8%AD%E6%96%AD%E6%9C%8D%E5%8A%A1%E7%A8%8B%E5%BA%8F"><span class="toc-number">1.5.2.0.1.</span> <span class="toc-text">1. 内部中断服务程序</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-8259A%E4%B8%AD%E6%96%AD%E6%8E%A7%E5%88%B6%E5%99%A8"><span class="toc-number">1.5.3.</span> <span class="toc-text">3. 8259A中断控制器</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-8259A%E7%9A%84%E5%86%85%E9%83%A8%E7%BB%93%E6%9E%84%E5%92%8C%E5%BC%95%E8%84%9A"><span class="toc-number">1.5.3.0.1.</span> <span class="toc-text">1. 8259A的内部结构和引脚</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-8259A%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%96%B9%E5%BC%8F"><span class="toc-number">1.5.3.0.2.</span> <span class="toc-text">3. 8259A的工作方式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-8259A%E7%9A%84%E7%BC%96%E7%A8%8B"><span class="toc-number">1.5.3.0.3.</span> <span class="toc-text">4. 8259A的编程</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-%E5%A4%96%E9%83%A8%E4%B8%AD%E6%96%AD%E6%9C%8D%E5%8A%A1%E7%A8%8B%E5%BA%8F"><span class="toc-number">1.5.3.0.4.</span> <span class="toc-text">5. 外部中断服务程序</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E5%AE%9A%E6%97%B6%E8%AE%A1%E6%95%B0%E6%8E%A7%E5%88%B6%E6%8E%A5%E5%8F%A3"><span class="toc-number">1.6.</span> <span class="toc-text">第五章 定时计数控制接口</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#8253-8254%E5%AE%9A%E6%97%B6%E8%AE%A1%E6%95%B0%E5%99%A8"><span class="toc-number">1.6.1.</span> <span class="toc-text">8253&#x2F;8254定时计数器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8253-8254%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%96%B9%E5%BC%8F"><span class="toc-number">1.6.2.</span> <span class="toc-text">8253&#x2F;8254的工作方式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8253-8254%E7%9A%84%E7%BC%96%E7%A8%8B"><span class="toc-number">1.6.3.</span> <span class="toc-text">8253&#x2F;8254的编程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-DMA%E6%8E%A7%E5%88%B6%E6%8E%A5%E5%8F%A3"><span class="toc-number">1.7.</span> <span class="toc-text">第六章 DMA控制接口</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#DMA%E6%8E%A7%E5%88%B6%E5%99%A88237A"><span class="toc-number">1.7.1.</span> <span class="toc-text">DMA控制器8237A</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-8237A%E7%9A%84%E5%86%85%E9%83%A8%E7%BB%93%E6%9E%84%E5%92%8C%E5%BC%95%E8%84%9A"><span class="toc-number">1.7.1.0.1.</span> <span class="toc-text">1. 8237A的内部结构和引脚</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-8237A%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%97%B6%E5%BA%8F%C2%B7%E7%A9%BA%E9%97%B2%E5%91%A8%E6%9C%9F"><span class="toc-number">1.7.1.0.2.</span> <span class="toc-text">2. 8237A的工作时序·空闲周期</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-8237A%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%96%B9%E5%BC%8F"><span class="toc-number">1.7.1.0.3.</span> <span class="toc-text">3. 8237A的工作方式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-8237A%E7%9A%84%E5%AF%84%E5%AD%98%E5%99%A8"><span class="toc-number">1.7.1.0.4.</span> <span class="toc-text">4. 8237A的寄存器</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/AlanCarte/AlanCarte.github.io/project/2023/06/21/hello-world/" title="Hello World"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/AlanCarte/AlanCarte.github.io/project/img/default_cover.jpg" onerror="this.onerror=null;this.src='/AlanCarte/AlanCarte.github.io/project/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/AlanCarte/AlanCarte.github.io/project/2023/06/21/hello-world/" title="Hello World">Hello World</a><time datetime="2023-06-21T15:25:16.261Z" title="发表于 2023-06-21 23:25:16">2023-06-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/AlanCarte/AlanCarte.github.io/project/2023/06/20/MyBatis%E5%9F%BA%E7%A1%80%E4%BA%BA%E7%AF%87/" title="MyBatis基础入门篇"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pic-1318708771.cos.ap-beijing.myqcloud.com/test/202306281444730.png" onerror="this.onerror=null;this.src='/AlanCarte/AlanCarte.github.io/project/img/404.jpg'" alt="MyBatis基础入门篇"/></a><div class="content"><a class="title" href="/AlanCarte/AlanCarte.github.io/project/2023/06/20/MyBatis%E5%9F%BA%E7%A1%80%E4%BA%BA%E7%AF%87/" title="MyBatis基础入门篇">MyBatis基础入门篇</a><time datetime="2023-06-20T04:30:00.000Z" title="发表于 2023-06-20 12:30:00">2023-06-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/AlanCarte/AlanCarte.github.io/project/2023/06/15/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF/" title="微机原理与接口技术"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://pic-1318708771.cos.ap-beijing.myqcloud.com/test/202306272036912.webp" onerror="this.onerror=null;this.src='/AlanCarte/AlanCarte.github.io/project/img/404.jpg'" alt="微机原理与接口技术"/></a><div class="content"><a class="title" href="/AlanCarte/AlanCarte.github.io/project/2023/06/15/%E5%BE%AE%E6%9C%BA%E5%8E%9F%E7%90%86%E4%B8%8E%E6%8E%A5%E5%8F%A3%E6%8A%80%E6%9C%AF/" title="微机原理与接口技术">微机原理与接口技术</a><time datetime="2023-06-15T08:30:00.000Z" title="发表于 2023-06-15 16:30:00">2023-06-15</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div id="footer_deal"><a class="deal_link" target="_blank" rel="noopener" href="https://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&amp;email=292933314@qq.com" title="email"><i class="anzhiyufont anzhiyu-icon-envelope"></i></a><a class="deal_link" target="_blank" rel="noopener" href="https://weibo.com/u/7470060454" title="微博"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a><a class="deal_link" target="_blank" rel="noopener" href="https://www.facebook.com/profile.php?id=100092208016287&amp;sk=about" title="facebook"><i class="anzhiyufont anzhiyu-icon-facebook1"></i></a><img class="footer_mini_logo" title="返回顶部" onclick="anzhiyu.scrollToDest(0, 500)" src="/img/01.png" size="50px"/><a class="deal_link" href="https://github.com/AlanCarte" title="Github"><i class="anzhiyufont anzhiyu-icon-github"></i></a><a class="deal_link" target="_blank" rel="noopener" href="https://space.bilibili.com/1381168039?spm_id_from=333.1007.0.0" title="Bilibili"><i class="anzhiyufont anzhiyu-icon-bilibili"></i></a><a class="deal_link" target="_blank" rel="noopener" href="https://www.douyin.com/" title="抖音"><i class="anzhiyufont anzhiyu-icon-tiktok"></i></a></div><div id="anzhiyu-footer"><div class="footer-group"><div class="footer-title">服务</div><div class="footer-links"><a class="footer-item" title="51la统计" target="_blank" href="https://v6.51.la/">51la统计</a><a class="footer-item" title="十年之约" target="_blank" href="https://www.foreverblog.cn/">十年之约</a><a class="footer-item" title="开往" target="_blank" href="https://github.com/travellings-link/travellings">开往</a></div></div><div class="footer-group"><div class="footer-title">导航</div><div class="footer-links"><a class="footer-item" title="即刻短文" target="_blank" href="/essay/">即刻短文</a><a class="footer-item" title="友链文章" target="_blank" href="/fcircle/">友链文章</a><a class="footer-item" title="留言板" target="_blank" href="/comments/">留言板</a></div></div><div class="footer-group"><div class="footer-title">协议</div><div class="footer-links"><a class="footer-item" title="隐私协议" target="_blank" href="/privacy/">隐私协议</a><a class="footer-item" title="Cookies" target="_blank" href="/cookies/">Cookies</a><a class="footer-item" title="版权协议" target="_blank" href="/copyright/">版权协议</a></div></div><div class="footer-group"><div class="footer-title-group"><div class="footer-title">友链</div><a class="random-friends-btn" id="footer-random-friends-btn" href="javascript:addFriendLinksInFooter();" title="换一批友情链接"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right"></i></a></div><div class="footer-links" id="friend-links-in-footer"></div></div></div><div class="copyright">&copy;2023 By Alan</div><div id="workboard"><img class="workSituationImg boardsign" src="https://pic-1318708771.cos.ap-beijing.myqcloud.com/test/202306232211493.svg" alt="距离成为大师还有好多天~" title="距离成为大师还有好多天~"/><div id="runtimeTextTip"></div></div><p id="ghbdages"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" data-title="博客框架为Hexo_v5.4.0" title="博客框架为Hexo_v5.4.0"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@2.1.5/img/badge/Frame-Hexo.svg" alt="博客框架为Hexo_v5.4.0"/></a><a class="github-badge" target="_blank" href="https://www.dogecloud.com/" style="margin-inline:5px" data-title="本站使用多吉云为静态资源提供CDN加速" title="本站使用多吉云为静态资源提供CDN加速"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@2.2.0/img/badge/CDN-多吉云-3693F3.svg" alt="本站使用多吉云为静态资源提供CDN加速"/></a><a class="github-badge" target="_blank" href="https://github.com/" style="margin-inline:5px" data-title="本站项目由Github托管" title="本站项目由Github托管"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://img.shields.io/badge/github-AlanCarte-blue?style=social&amp;logo=github" alt="本站项目由Github托管"/></a><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" data-title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://npm.elemecdn.com/anzhiyu-blog@2.2.0/img/badge/Copyright-BY-NC-SA.svg" alt="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"/></a></p></div></footer></div></div></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="/AlanCarte/AlanCarte.github.io/project/img/01.png"/><div class="loading-image-dot"></div><div id="loading-percentage">0%</div></div></div><script>const loadingPercentage = document.getElementById("loading-percentage");
+let loadingPercentageTimer = setInterval(function() {
+  var progressBar = document.querySelector(".pace-progress");
+  if (!progressBar) return
+  var currentValue = progressBar.getAttribute("data-progress-text");
+  if (currentValue !== loadingPercentage.textContent) {
+    loadingPercentage.textContent = currentValue;
+    if (currentValue === "100%") {
+      clearInterval(loadingPercentageTimer);
+    }
+  }
+}, 100);
+const preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+    Pace.restart()
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/progress_bar/progress_bar.css"/><script async="async" src="https://npm.elemecdn.com/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div id="sidebar"><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/AlanCarte/AlanCarte.github.io/project/img/01.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/AlanCarte/AlanCarte.github.io/project/archives/" title="archive"><div class="headline">文章</div><div class="length-num">3</div></a><a href="/AlanCarte/AlanCarte.github.io/project/tags/" title="tag"><div class="headline">标签</div><div class="length-num">2</div></a><a href="/AlanCarte/AlanCarte.github.io/project/categories/" title="category"><div class="headline">分类</div><div class="length-num">1</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page faa-parent animated-hover" href="javascript:void(0);"><span> 文库</span></a><ul class="menus_item_child" style="left:-79px;"><li><a class="site-page child faa-parent animated-hover" href="/AlanCarte/AlanCarte.github.io/project/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 全部文章</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/AlanCarte/AlanCarte.github.io/project/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/AlanCarte/AlanCarte.github.io/project/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child" style="left:-79px;"><li><a class="site-page child faa-parent animated-hover" href="/AlanCarte/AlanCarte.github.io/project/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/AlanCarte/AlanCarte.github.io/project/fcircle/"><i class="anzhiyufont anzhiyu-icon-artstation faa-tada" style="font-size: 0.9em;"></i><span> 朋友圈</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/AlanCarte/AlanCarte.github.io/project/comments/"><i class="anzhiyufont anzhiyu-icon-envelope faa-tada" style="font-size: 0.9em;"></i><span> 留言板</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child" style="left:-127px;"><li><a class="site-page child faa-parent animated-hover" href="/AlanCarte/AlanCarte.github.io/project/music/?id=2173542081&amp;server=netease"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/AlanCarte/AlanCarte.github.io/project/collect/"><i class="anzhiyufont anzhiyu-icon-bilibili faa-tada" style="font-size: 0.9em;"></i><span> 电影推荐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/AlanCarte/AlanCarte.github.io/project/album/"><i class="fa-solid fa-film faa-tada"></i><span> 相册集</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/AlanCarte/AlanCarte.github.io/project/stars/"><i class="fa-solid fa-star faa-tada"></i><span> 百宝箱</span></a></li></ul></div><div class="menus_item"><a class="site-page faa-parent animated-hover" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child" style="left:-79px;"><li><a class="site-page child faa-parent animated-hover" href="/AlanCarte/AlanCarte.github.io/project/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/AlanCarte/AlanCarte.github.io/project/essay/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 闲言碎语</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="anzhiyufont anzhiyu-icon-comments"></i></a><a id="switch_commentBarrage" href="javascript:anzhiyu.switchCommentBarrage();" title="开关弹幕"><i class="anzhiyufont anzhiyu-icon-danmu"></i></a><button id="center-console" type="button" title="中控台"><i class="anzhiyufont anzhiyu-icon-fish"></i></button><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><div id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()">播放音乐</div><div id="console-music-bg"></div><meting-js id="2173542081" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random"></meting-js></div><div id="console"><div class="close-btn" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-xmark" style="font-size: 35px;"></i></div><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="/AlanCarte/AlanCarte.github.io/project/img/wechat.jpg" target="_blank"><img class="post-qr-code-img" alt="wechat" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/AlanCarte/AlanCarte.github.io/project/img/wechat.jpg"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/AlanCarte/AlanCarte.github.io/project/img/alipay.jpg" target="_blank"><img class="post-qr-code-img" alt="alipay" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="/AlanCarte/AlanCarte.github.io/project/img/alipay.jpg"/></a><div class="post-qr-code-desc">alipay</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments" onclick="anzhiyu.hideConsole()"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> <span>最新评论</span></span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags" onclick="anzhiyu.hideConsole()"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/AlanCarte/AlanCarte.github.io/project/tags/MyBatis/" style="font-size: 1.05rem;">MyBatis<sup>1</sup></a><a href="/AlanCarte/AlanCarte.github.io/project/tags/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" style="font-size: 1.05rem;">学习笔记<sup>1</sup></a></div></div><hr/></div></div><div class="console-card history" onclick="anzhiyu.hideConsole()"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/AlanCarte/AlanCarte.github.io/project/archives/2023/06/"><span class="card-archive-list-date">六月 2023</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">3</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" onclick="anzhiyu.switchDarkMode()" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item on" id="consoleCommentBarrage" onclick="anzhiyu.switchCommentBarrage()" title="热评开关"><a class="commentBarrage"><i class="anzhiyufont anzhiyu-icon-message"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div><div class="console-btn-item" id="consoleKeyboard" onclick="anzhiyu.keyboardToggle()" title="快捷键开关"><a class="keyboard-switch"><i class="anzhiyufont anzhiyu-icon-keyboard"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div id="algolia-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><button class="search-close-button"><i class="anzhiyufont anzhiyu-icon-xmark"></i></button></nav><div class="search-wrap"><div id="algolia-search-input"></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-info"><div class="algolia-stats"></div><div class="algolia-poweredBy"></div></div></div></div></div><div id="search-mask"></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://music.163.com/#/my/m/music/playlist?id=2173542081&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="https://npm.elemecdn.com/hexo-theme-anzhiyu@1.3.1/source/js/utils.js"></script><script src="https://npm.elemecdn.com/hexo-theme-anzhiyu@1.3.1/source/js/main.js"></script><script src="https://npm.elemecdn.com/hexo-theme-anzhiyu@1.3.1/source/js/tw_cn.js"></script><script src="https://npm.elemecdn.com/@fancyapps/ui@4.0.31/dist/fancybox.umd.js"></script><script src="https://npm.elemecdn.com/instant.page@5.1.1/instantpage.js" type="module"></script><script src="https://npm.elemecdn.com/vanilla-lazyload@17.3.1/dist/lazyload.iife.min.js"></script><script src="https://npm.elemecdn.com/node-snackbar@0.1.16/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://npm.elemecdn.com/pangu@4.0.7/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (false){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script>// 消除控制台打印
+var HoldLog = console.log;
+console.log = function () {};
+let now1 = new Date();
+queueMicrotask(() => {
+  const Log = function () {
+    HoldLog.apply(console, arguments);
+  }; //在恢复前输出日志
+  const grt = new Date("06/01/2023 00:00:00"); //此处修改你的建站时间或者网站上线时间
+  now1.setTime(now1.getTime() + 250);
+  const days = (now1 - grt) / 1000 / 60 / 60 / 24;
+  const dnum = Math.floor(days);
+  const ascll = [
+    `欢迎使用安知鱼!`,
+    `生活明朗, 万物可爱`,
+    `
+        
+       █████╗ ███╗   ██╗███████╗██╗  ██╗██╗██╗   ██╗██╗   ██╗
+      ██╔══██╗████╗  ██║╚══███╔╝██║  ██║██║╚██╗ ██╔╝██║   ██║
+      ███████║██╔██╗ ██║  ███╔╝ ███████║██║ ╚████╔╝ ██║   ██║
+      ██╔══██║██║╚██╗██║ ███╔╝  ██╔══██║██║  ╚██╔╝  ██║   ██║
+      ██║  ██║██║ ╚████║███████╗██║  ██║██║   ██║   ╚██████╔╝
+      ╚═╝  ╚═╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝   ╚═╝    ╚═════╝
+        
+        `,
+    "已上线",
+    dnum,
+    "天",
+    "©2023 By 安知鱼 1.3.1",
+  ];
+  const ascll2 = [`NCC2-036`, `调用前置摄像头拍照成功，识别为【小笨蛋】.`, `Photo captured: `, `🤪`];
+
+  setTimeout(
+    Log.bind(
+      console,
+      `\n%c${ascll[0]} %c ${ascll[1]} %c ${ascll[2]} %c${ascll[3]}%c ${ascll[4]}%c ${ascll[5]}\n\n%c ${ascll[6]}\n`,
+      "color:#3b70fc",
+      "",
+      "color:#3b70fc",
+      "color:#3b70fc",
+      "",
+      "color:#3b70fc",
+      ""
+    )
+  );
+  setTimeout(
+    Log.bind(
+      console,
+      `%c ${ascll2[0]} %c ${ascll2[1]} %c \n${ascll2[2]} %c\n${ascll2[3]}\n`,
+      "color:white; background-color:#4fd953",
+      "",
+      "",
+      'background:url("https://npm.elemecdn.com/anzhiyu-blog@1.1.6/img/post/common/tinggge.gif") no-repeat;font-size:450%'
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c WELCOME %c 你好，小笨蛋.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(
+      console,
+      "%c ⚡ Powered by 安知鱼 %c 你正在访问 Alan 的博客.",
+      "color:white; background-color:#f0ad4e",
+      ""
+    )
+  );
+
+  setTimeout(Log.bind(console, "%c W23-12 %c 你已打开控制台.", "color:white; background-color:#4f90d9", ""));
+
+  setTimeout(
+    console.warn.bind(console, "%c S013-782 %c 你现在正处于监控中.", "color:white; background-color:#d9534f", "")
+  );
+});</script><script async src="/anzhiyu/random.js"></script><script async="async">(function () {
+  var grt = new Date("06/01/2023 00:00:00"); //设置网站上线时间
+  var now = new Date();
+  var dnum;
+  var hnum;
+  var mnum;
+  var snum;
+  var nowHour;
+
+  // 计算并更新天数、小时数、分钟数和秒数
+  function updateTime() {
+    now = new Date(); // 更新 now 的值
+    nowHour = now.getHours(); // 更新 nowHour 的值
+    var days = (now - grt) / 1000 / 60 / 60 / 24;
+    dnum = Math.floor(days);
+    var hours = (now - grt) / 1000 / 60 / 60 - 24 * dnum;
+    hnum = Math.floor(hours);
+    if (String(hnum).length == 1) {
+      hnum = "0" + hnum;
+    }
+    var minutes = (now - grt) / 1000 / 60 - 24 * 60 * dnum - 60 * hnum;
+    mnum = Math.floor(minutes);
+    if (String(mnum).length == 1) {
+      mnum = "0" + mnum;
+    }
+    var seconds = (now - grt) / 1000 - 24 * 60 * 60 * dnum - 60 * 60 * hnum - 60 * mnum;
+    snum = Math.round(seconds);
+    if (String(snum).length == 1) {
+      snum = "0" + snum;
+    }
+  }
+
+  // 更新网页中显示的网站运行时间
+  function updateHtml() {
+    const footer = document.getElementById("footer");
+    if (!footer) return
+    let currentTimeHtml = "";
+    if (nowHour < 18 && nowHour >= 9) {
+      // 如果是上班时间，默认就是"安知鱼-上班摸鱼中.svg"图片，不需要更改
+      currentTimeHtml = `本站居然运行了 ${dnum} 天<span id='runtime'> ${hnum} 小时 ${mnum} 分 ${snum} 秒 </span><i class='anzhiyufont anzhiyu-icon-heartbeat' style='color:red'></i>`;
+    } else {
+      // 如果是下班时间，插入"安知鱼-下班啦.svg"图片
+      let img = document.querySelector("#workboard .workSituationImg");
+      img.src = "https://pic-1318708771.cos.ap-beijing.myqcloud.com/test/202306232211492.svg";
+      img.title = "这个点了应该去睡觉啦，熬夜对身体不好哦";
+      img.alt = "这个点了应该去睡觉啦，熬夜对身体不好哦";
+
+      currentTimeHtml = `本站居然运行了 ${dnum} 天<span id='runtime'> ${hnum} 小时 ${mnum} 分 ${snum} 秒 </span><i class='anzhiyufont anzhiyu-icon-heartbeat' style='color:red'></i>`;
+    }
+
+    if (document.getElementById("runtimeTextTip")) {
+      document.getElementById("runtimeTextTip").innerHTML = currentTimeHtml;
+    }
+  }
+
+  setInterval(() => {
+    updateTime();
+    updateHtml();
+  }, 1000);
+})();</script><script src="https://npm.elemecdn.com/algoliasearch@4.14.2/dist/algoliasearch-lite.umd.js"></script><script src="https://npm.elemecdn.com/instantsearch.js@4.46.1/dist/instantsearch.production.min.js"></script><script src="https://npm.elemecdn.com/hexo-theme-anzhiyu@1.3.1/source/js/search/algolia.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: '6VDrHHESeiZpMRdIs94VDvHC-gzGzoHsz',
+      appKey: 'tGwWOYFG9KXMeLVAGpS6RUep',
+      avatar: 'mp',
+      serverURLs: '',
+      emojiMaps: {"tv_doge":"6ea59c827c414b4a2955fe79e0f6fd3dcd515e24.png","tv_亲亲":"a8111ad55953ef5e3be3327ef94eb4a39d535d06.png","tv_偷笑":"bb690d4107620f1c15cff29509db529a73aee261.png","tv_再见":"180129b8ea851044ce71caf55cc8ce44bd4a4fc8.png","tv_冷漠":"b9cbc755c2b3ee43be07ca13de84e5b699a3f101.png","tv_发怒":"34ba3cd204d5b05fec70ce08fa9fa0dd612409ff.png","tv_发财":"34db290afd2963723c6eb3c4560667db7253a21a.png","tv_可爱":"9e55fd9b500ac4b96613539f1ce2f9499e314ed9.png","tv_吐血":"09dd16a7aa59b77baa1155d47484409624470c77.png","tv_呆":"fe1179ebaa191569b0d31cecafe7a2cd1c951c9d.png","tv_呕吐":"9f996894a39e282ccf5e66856af49483f81870f3.png","tv_困":"241ee304e44c0af029adceb294399391e4737ef2.png","tv_坏笑":"1f0b87f731a671079842116e0991c91c2c88645a.png","tv_大佬":"093c1e2c490161aca397afc45573c877cdead616.png","tv_大哭":"23269aeb35f99daee28dda129676f6e9ea87934f.png","tv_委屈":"d04dba7b5465779e9755d2ab6f0a897b9b33bb77.png","tv_害羞":"a37683fb5642fa3ddfc7f4e5525fd13e42a2bdb1.png","tv_尴尬":"7cfa62dafc59798a3d3fb262d421eeeff166cfa4.png","tv_微笑":"70dc5c7b56f93eb61bddba11e28fb1d18fddcd4c.png","tv_思考":"90cf159733e558137ed20aa04d09964436f618a1.png","tv_惊吓":"0d15c7e2ee58e935adc6a7193ee042388adc22af.png"},
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else getScript('https://npm.elemecdn.com/valine@1.5.1/dist/Valine.min.js').then(initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) anzhiyu.loadComment(document.getElementById('vcomment'),loadValine)
+  else setTimeout(loadValine, 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><input type="hidden" name="page-type" id="page-type" value="post"></div><script src="https://npm.elemecdn.com/blueimp-md5@2.19.0/js/md5.min.js"></script><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getIcon = (icon, mail) => {
+    if (icon) return icon
+    let defaultIcon = '?d=mp'
+    let iconUrl = `https://gravatar.loli.net/avatar/${md5(mail.toLowerCase()) + defaultIcon}`
+    return iconUrl
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'></a>`
+        }
+
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
+        <div class='name'><span>${array[i].nick} / </span><time datetime="${array[i].date}">${anzhiyu.diffDate(array[i].date, true)}</time></div>
+        </div></div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom.innerHTML= result
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const getComment = () => {
+    const serverURL = 'https://6VDrHHES.api.lncldglobal.com'
+
+    var settings = {
+      "method": "GET",
+      "headers": {
+        "X-LC-Id": '6VDrHHESeiZpMRdIs94VDvHC-gzGzoHsz',
+        "X-LC-Key": 'tGwWOYFG9KXMeLVAGpS6RUep',
+        "Content-Type": "application/json"
+      },
+    }
+
+    fetch(`${serverURL}/1.1/classes/Comment?limit=6&order=-createdAt`,settings)
+      .then(response => response.json())
+      .then(data => {
+        const valineArray = data.results.map(function (e) {
+          return {
+            'avatar': getIcon(e.QQAvatar, e.mail),
+            'content': changeContent(e.comment),
+            'nick': e.nick,
+            'url': e.url + '#' + e.objectId,
+            'date': e.updatedAt,
+          }
+        })
+        saveToLocal.set('valine-newest-comments', JSON.stringify(valineArray), 10/(60*24))
+        generateHtml(valineArray)
+      }).catch(e => {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.innerHTML= "无法获取评论，请确认相关配置是否正确"
+      }) 
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('valine-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script async data-pjax src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.1/bubble/bubble.js"></script><script>var visitorMail = "visitor@anheyu.com";</script><script>//动态标题
+let leaveTitle = 'w(ﾟДﾟ)w 不要走！再看看嘛！';
+let backTitle = '♪(^∇^*)欢迎肥来！';
+let OriginTitile = document.title
+let titleTime
+document.addEventListener('visibilitychange', function () {
+  if (document.hidden) {
+    //离开当前页面时标签显示内容
+    document.title = leaveTitle
+    clearTimeout(titleTime)
+  } else {
+    //返回当前页面时标签显示内容
+    document.title = backTitle + OriginTitile
+    //两秒后变回正常标题
+    titleTime = setTimeout(function () {
+      document.title = OriginTitile
+    }, 2000)
+  }
+})</script><script async data-pjax src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><script>// 初始化函数
+let rm = {};
+
+//禁止图片与超链接拖拽
+let aElements = document.getElementsByTagName("a");
+for (let i = 0; i < aElements.length; i++) {
+  aElements[i].setAttribute("draggable", "false");
+  let imgElements = aElements[i].getElementsByTagName("img");
+  for (let j = 0; j < imgElements.length; j++) {
+    imgElements[j].setAttribute("draggable", "false");
+  }
+}
+
+// 显示菜单
+rm.showRightMenu = function (isTrue, x = 0, y = 0) {
+  console.info(x, y)
+  let rightMenu = document.getElementById("rightMenu");
+  rightMenu.style.top = x + "px";
+  rightMenu.style.left = y + "px";
+  if (isTrue) {
+    rightMenu.style.display = "block";
+    stopMaskScroll();
+  } else {
+    rightMenu.style.display = "none";
+  }
+};
+
+// 隐藏菜单
+rm.hideRightMenu = function () {
+  rm.showRightMenu(false);
+  let rightMenuMask = document.querySelector("#rightmenu-mask");
+  rightMenuMask.style.display = "none";
+};
+
+// 尺寸
+let rmWidth = document.getElementById("rightMenu").offsetWidth;
+let rmHeight = document.getElementById("rightMenu").offsetHeight;
+
+// 重新定义尺寸
+rm.reloadrmSize = function () {
+  rightMenu.style.visibility = "hidden";
+  rightMenu.style.display = "block";
+  // 获取宽度和高度
+  rmWidth = document.getElementById("rightMenu").offsetWidth;
+  rmHeight = document.getElementById("rightMenu").offsetHeight;
+  rightMenu.style.visibility = "visible";
+};
+
+// 获取点击的href
+let domhref = "";
+let domImgSrc = "";
+let globalEvent = null;
+
+var oncontextmenuFunction = function (event) {
+  if (document.body.clientWidth > 768) {
+    let pageX = event.clientX + 10; //加10是为了防止显示时鼠标遮在菜单上
+    let pageY = event.clientY;
+
+    //其他额外菜单
+    const $rightMenuOther = document.querySelector(".rightMenuOther");
+    const $rightMenuPlugin = document.querySelector(".rightMenuPlugin");
+    const $rightMenuCopyText = document.querySelector("#menu-copytext");
+    const $rightMenuPasteText = document.querySelector("#menu-pastetext");
+    const $rightMenuCommentText = document.querySelector("#menu-commenttext");
+    const $rightMenuNewWindow = document.querySelector("#menu-newwindow");
+    const $rightMenuNewWindowImg = document.querySelector("#menu-newwindowimg");
+    const $rightMenuCopyLink = document.querySelector("#menu-copylink");
+    const $rightMenuCopyImg = document.querySelector("#menu-copyimg");
+    const $rightMenuDownloadImg = document.querySelector("#menu-downloadimg");
+    const $rightMenuSearch = document.querySelector("#menu-search");
+    const $rightMenuSearchBaidu = document.querySelector("#menu-searchBaidu");
+    const $rightMenuMusicToggle = document.querySelector("#menu-music-toggle");
+    const $rightMenuMusicBack = document.querySelector("#menu-music-back");
+    const $rightMenuMusicForward = document.querySelector("#menu-music-forward");
+    const $rightMenuMusicPlaylist = document.querySelector("#menu-music-playlist");
+    const $rightMenuMusicCopyMusicName = document.querySelector("#menu-music-copyMusicName");
+
+    let href = event.target.href;
+    let imgsrc = event.target.currentSrc;
+
+    // 判断模式 扩展模式为有事件
+    let pluginMode = false;
+    $rightMenuOther.style.display = "block";
+    globalEvent = event;
+
+    // 检查是否需要复制 是否有选中文本
+    if (selectTextNow && window.getSelection()) {
+      pluginMode = true;
+      $rightMenuCopyText.style.display = "block";
+      $rightMenuCommentText.style.display = "block";
+      $rightMenuSearch.style.display = "block";
+      $rightMenuSearchBaidu.style.display = "block";
+    } else {
+      $rightMenuCopyText.style.display = "none";
+      $rightMenuCommentText.style.display = "none";
+      $rightMenuSearchBaidu.style.display = "none";
+      $rightMenuSearch.style.display = "none";
+    }
+
+    //检查是否右键点击了链接a标签
+    if (href) {
+      pluginMode = true;
+      $rightMenuNewWindow.style.display = "block";
+      $rightMenuCopyLink.style.display = "block";
+      domhref = href;
+    } else {
+      $rightMenuNewWindow.style.display = "none";
+      $rightMenuCopyLink.style.display = "none";
+    }
+
+    //检查是否需要复制图片
+    if (imgsrc) {
+      pluginMode = true;
+      $rightMenuCopyImg.style.display = "block";
+      $rightMenuDownloadImg.style.display = "block";
+      $rightMenuNewWindowImg.style.display = "block";
+      document.getElementById("rightMenu").style.width="12rem"
+      domImgSrc = imgsrc;
+    } else {
+      $rightMenuCopyImg.style.display = "none";
+      $rightMenuDownloadImg.style.display = "none";
+      $rightMenuNewWindowImg.style.display = "none";
+    }
+
+    // 判断是否为输入框
+    if (event.target.tagName.toLowerCase() === "input" || event.target.tagName.toLowerCase() === "textarea") {
+      pluginMode = true;
+      $rightMenuPasteText.style.display = "block";
+    } else {
+      $rightMenuPasteText.style.display = "none";
+    }
+    const navMusicEl = document.querySelector("#nav-music");
+    //判断是否是音乐
+    if (navMusicEl && navMusicEl.contains(event.target)) {
+      pluginMode = true;
+      $rightMenuMusicToggle.style.display = "block";
+      $rightMenuMusicBack.style.display = "block";
+      $rightMenuMusicForward.style.display = "block";
+      $rightMenuMusicPlaylist.style.display = "block";
+      $rightMenuMusicCopyMusicName.style.display = "block";
+    } else {
+      $rightMenuMusicToggle.style.display = "none";
+      $rightMenuMusicBack.style.display = "none";
+      $rightMenuMusicForward.style.display = "none";
+      $rightMenuMusicPlaylist.style.display = "none";
+      $rightMenuMusicCopyMusicName.style.display = "none";
+    }
+
+    // 如果不是扩展模式则隐藏扩展模块
+    if (pluginMode) {
+      $rightMenuOther.style.display = "none";
+      $rightMenuPlugin.style.display = "block";
+    } else {
+      $rightMenuPlugin.style.display = "none";
+    }
+
+    rm.reloadrmSize();
+
+    // 鼠标默认显示在鼠标右下方，当鼠标靠右或靠下时，将菜单显示在鼠标左方\上方
+    if (pageX + rmWidth > window.innerWidth) {
+      pageX -= rmWidth + 10;
+    }
+    if (pageY + rmHeight > window.innerHeight) {
+      pageY -= pageY + rmHeight - window.innerHeight;
+    }
+
+    rm.showRightMenu(true, pageY, pageX);
+    document.getElementById("rightmenu-mask").style.display = "flex";
+    return false;
+  }
+};
+
+// 监听右键初始化
+window.oncontextmenu = oncontextmenuFunction
+
+// 下载图片状态
+rm.downloadimging = false;
+
+// 复制图片到剪贴板
+rm.writeClipImg = function (imgsrc) {
+  console.log("按下复制");
+  rm.hideRightMenu();
+  anzhiyu.snackbarShow("正在下载中，请稍后", false, 10000);
+  if (rm.downloadimging == false) {
+    rm.downloadimging = true;
+    setTimeout(function () {
+      copyImage(imgsrc);
+      anzhiyu.snackbarShow("复制成功！图片已添加盲水印，请遵守版权协议");
+      rm.downloadimging = false;
+    }, "10000");
+  }
+};
+
+function imageToBlob(imageURL) {
+  const img = new Image();
+  const c = document.createElement("canvas");
+  const ctx = c.getContext("2d");
+  img.crossOrigin = "";
+  img.src = imageURL;
+  return new Promise(resolve => {
+    img.onload = function () {
+      c.width = this.naturalWidth;
+      c.height = this.naturalHeight;
+      ctx.drawImage(this, 0, 0);
+      c.toBlob(
+        blob => {
+          // here the image is a blob
+          resolve(blob);
+        },
+        "image/png",
+        0.75
+      );
+    };
+  });
+}
+
+async function copyImage(imageURL) {
+  const blob = await imageToBlob(imageURL);
+  const item = new ClipboardItem({ "image/png": blob });
+  navigator.clipboard.write([item]);
+}
+
+rm.copyUrl = function (id) {
+  const input = document.createElement("input"); // Create a new <input> element
+  input.id = "copyVal"; // Set the id of the new element to "copyVal"
+  document.body.appendChild(input); // Append the new element to the end of the <body> element
+  
+  const text = id;
+  input.value = text;
+  input.select();
+  input.setSelectionRange(0, input.value.length);
+  document.execCommand("copy");
+  
+  input.remove(); // Remove the <input> element from the DOM
+};
+
+function stopMaskScroll() {
+  if (document.getElementById("rightmenu-mask")) {
+    let xscroll = document.getElementById("rightmenu-mask");
+    xscroll.addEventListener(
+      "mousewheel",
+      function (e) {
+        //阻止浏览器默认方法
+        rm.hideRightMenu();
+        // e.preventDefault();
+      },
+      { passive: true }
+    );
+  }
+  if (document.getElementById("rightMenu")) {
+    let xscroll = document.getElementById("rightMenu");
+    xscroll.addEventListener(
+      "mousewheel",
+      function (e) {
+        //阻止浏览器默认方法
+        rm.hideRightMenu();
+        // e.preventDefault();
+      },
+      { passive: true }
+    );
+  }
+}
+
+rm.rightmenuCopyText = function (txt) {
+  if (navigator.clipboard) {
+    navigator.clipboard.writeText(txt);
+  }
+  rm.hideRightMenu();
+};
+
+rm.copyPageUrl = function (url) {
+  if (!url) {
+    url = window.location.href;
+  }
+  rm.copyUrl(url);
+  anzhiyu.snackbarShow("复制本页链接地址成功", false, 2000);
+  rm.hideRightMenu();
+};
+
+rm.sharePage = function () {
+  var content = window.location.href;
+  rm.copyUrl(url);
+  anzhiyu.snackbarShow("复制本页链接地址成功", false, 2000);
+  rm.hideRightMenu();
+};
+
+// 复制当前选中文本
+var selectTextNow = "";
+document.onmouseup = document.ondblclick = selceText;
+
+function selceText() {
+  var txt;
+  if (document.selection) {
+    txt = document.selection.createRange().text;
+  } else {
+    txt = window.getSelection().toString();
+  }
+  selectTextNow = txt !== "" ? txt : "";
+}
+
+// 读取剪切板
+rm.readClipboard = function () {
+  if (navigator.clipboard) {
+    navigator.clipboard.readText().then(clipText => rm.insertAtCaret(globalEvent.target, clipText));
+  }
+};
+
+// 粘贴文本到焦点
+rm.insertAtCaret = function (elemt, value) {
+  const startPos = elemt.selectionStart,
+    endPos = elemt.selectionEnd;
+  if (document.selection) {
+    elemt.focus();
+    var sel = document.selection.createRange();
+    sel.text = value;
+    elemt.focus();
+  } else {
+    if (startPos || startPos == "0") {
+      var scrollTop = elemt.scrollTop;
+      elemt.value = elemt.value.substring(0, startPos) + value + elemt.value.substring(endPos, elemt.value.length);
+      elemt.focus();
+      elemt.selectionStart = startPos + value.length;
+      elemt.selectionEnd = startPos + value.length;
+      elemt.scrollTop = scrollTop;
+    } else {
+      elemt.value += value;
+      elemt.focus();
+    }
+  }
+};
+
+//粘贴文本
+rm.pasteText = function () {
+  const result = rm.readClipboard() || "";
+  rm.hideRightMenu();
+};
+
+//引用到评论
+rm.rightMenuCommentText = function (txt) {
+  rm.hideRightMenu();
+  const postCommentDom = document.getElementById("post-comment");
+  var domTop = postCommentDom.offsetTop;
+  window.scrollTo(0, domTop - 80);
+  if (txt == "undefined" || txt == "null") txt = "好棒！";
+  function setText() {
+    setTimeout(() => {
+      var input = document.getElementsByClassName("el-textarea__inner")[0];
+      if (!input) setText();
+      let evt = document.createEvent("HTMLEvents");
+      evt.initEvent("input", true, true);
+      let inputValue = replaceAll(txt, "\n", "\n> ");
+      input.value = "> " + inputValue + "\n\n";
+      input.dispatchEvent(evt);
+      input.focus();
+      input.setSelectionRange(-1, -1);
+      if (document.getElementById("comment-tips")) {
+        document.getElementById("comment-tips").classList.add("show");
+      }
+    }, 100);
+  }
+  setText();
+};
+
+//替换所有内容
+function replaceAll(string, search, replace) {
+  return string.split(search).join(replace);
+}
+
+// 百度搜索
+rm.searchBaidu = function () {
+  anzhiyu.snackbarShow("即将跳转到百度搜索", false, 2000);
+  setTimeout(function () {
+    window.open("https://www.baidu.com/s?wd=" + selectTextNow);
+  }, "2000");
+  rm.hideRightMenu();
+};
+
+//分享链接
+rm.copyLink = function () {
+  rm.rightmenuCopyText(domhref);
+  anzhiyu.snackbarShow("已复制链接地址");
+};
+
+function addRightMenuClickEvent() {
+  // 添加点击事件
+  document.getElementById("menu-backward").addEventListener("click", function () {
+  window.history.back();
+    rm.hideRightMenu();
+  });
+
+  document.getElementById("menu-forward").addEventListener("click", function () {
+    window.history.forward();
+    rm.hideRightMenu();
+  });
+
+  document.getElementById("menu-refresh").addEventListener("click", function () {
+    window.location.reload();
+  });
+
+  document.getElementById("menu-top").addEventListener("click", function () {
+    anzhiyu.scrollToDest(0, 500);
+    rm.hideRightMenu();
+  });
+
+  const menuLinks = document.querySelectorAll(".menu-link");
+  menuLinks.forEach(function (link) {
+    link.addEventListener("click", rm.hideRightMenu);
+  });
+
+  document.getElementById("menu-darkmode").addEventListener("click", anzhiyu.switchDarkMode);
+
+  document.getElementById("menu-home") && document.getElementById("menu-home").addEventListener("click", function () {
+    window.location.href = window.location.origin;
+  });
+
+  document.getElementById("menu-randomPost").addEventListener("click", function () {
+    toRandomPost();
+  });
+
+  document.getElementById("menu-commentBarrage").addEventListener("click", anzhiyu.switchCommentBarrage);
+
+  document.getElementById("rightmenu-mask").addEventListener("click", rm.hideRightMenu);
+
+  document.getElementById("rightmenu-mask").addEventListener("contextmenu", function (event) {
+    rm.hideRightMenu();
+    event.preventDefault(); // Prevent the default context menu from appearing
+  });
+
+  document.getElementById("menu-copy").addEventListener("click", rm.copyPageUrl);
+
+  document.getElementById("menu-pastetext").addEventListener("click", rm.pasteText);
+
+  document.getElementById("menu-copytext").addEventListener("click", function () {
+    rm.rightmenuCopyText(selectTextNow);
+    anzhiyu.snackbarShow("复制成功，复制和转载请标注本文地址");
+  });
+
+  document.getElementById("menu-commenttext").addEventListener("click", function () {
+    rm.rightMenuCommentText(selectTextNow);
+  });
+
+  document.getElementById("menu-newwindow").addEventListener("click", function () {
+    window.open(domhref, "_blank");
+    rm.hideRightMenu();
+  });
+
+  document.getElementById("menu-copylink").addEventListener("click", rm.copyLink);
+
+  document.getElementById("menu-downloadimg").addEventListener("click", function () {
+    anzhiyu.downloadImage(domImgSrc, "anzhiyu");
+  });
+
+  document.getElementById("menu-newwindowimg").addEventListener("click", function () {
+    window.open(domImgSrc, "_blank");
+    rm.hideRightMenu();
+  });
+
+  document.getElementById("menu-copyimg").addEventListener("click", function () {
+    rm.writeClipImg(domImgSrc);
+  });
+
+  document.getElementById("menu-searchBaidu").addEventListener("click", rm.searchBaidu);
+
+  //音乐
+  document.getElementById("menu-music-toggle").addEventListener("click", anzhiyu.musicToggle);
+
+  document.getElementById("menu-music-back").addEventListener("click", anzhiyu.musicSkipBack);
+
+  document.getElementById("menu-music-forward").addEventListener("click", anzhiyu.musicSkipForward);
+
+  document.getElementById("menu-music-copyMusicName").addEventListener("click", function () {
+    rm.rightmenuCopyText(anzhiyu.musicGetName());
+    anzhiyu.snackbarShow("复制歌曲名称成功", false, 3000);
+  });
+
+}
+
+addRightMenuClickEvent();</script><script data-pjax>var themeColorMeta = document.querySelector('meta[name="theme-color"]');
+var pageHeaderEl = document.getElementById("page-header");
+var navMusicEl = document.getElementById("nav-music");
+var consoleEl = document.getElementById("console");
+// 已随机的歌曲
+var selectRandomSong = [];
+// 音乐默认声音大小
+var musicVolume = 0.8;
+// 是否切换了周杰伦音乐列表
+var changeMusicListFlag = false;
+// 当前默认播放列表
+var defaultPlayMusicList = [];
+
+document.getElementById("page-name").innerText = document.title.split(" | Alan-Blog")[0];
+anzhiyu.initIndexEssay();
+anzhiyu.changeTimeInEssay();
+anzhiyu.removeBodyPaceClass();
+anzhiyu.qrcodeCreate();
+anzhiyu.changeTimeInAlbumDetail();
+anzhiyu.reflashEssayWaterFall();
+anzhiyu.sayhi();
+anzhiyu.stopImgRightDrag();
+anzhiyu.addNavBackgroundInit();
+anzhiyu.setValueToBodyType();
+anzhiyu.catalogActive();
+anzhiyu.tagsPageActive();
+anzhiyu.categoriesBarActive();
+anzhiyu.topCategoriesBarScroll();
+anzhiyu.switchRightClickMenuHotReview();
+
+anzhiyu.getCustomPlayList();
+anzhiyu.addEventListenerConsoleMusicList(false);
+setTimeout(() => {
+  if (typeof addFriendLinksInFooter === "function") {
+    addFriendLinksInFooter();
+  }
+}, 200)</script><link rel="stylesheet" href="https://npm.elemecdn.com/anzhiyu-theme-static@1.1.0/icon/ali_iconfont_css.css"><script async src="https://at.alicdn.com/t/c/font_4133697_i8em6d1t5h.js"></script><script type="text/javascript" src="https://unpkg.zhimg.com/jquery@latest/dist/jquery.min.js"></script><script async data-pjax src="/js/welcome.js"></script><script defer src="/js/icon-font.js"></script><script defer src="/js/universe.js"></script><canvas class="fireworks" mobile="false"></canvas><script src="https://npm.elemecdn.com/butterfly-extsrc@1.1.3/dist/fireworks.min.js"></script><link rel="stylesheet" href="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://npm.elemecdn.com/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://npm.elemecdn.com/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://npm.elemecdn.com/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script data-pjax>
+  function butterfly_clock_anzhiyu_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-lazy-src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock_anzhiyu')
+    if(parent_div_git) {
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var qweather_key = '2993713eb1b744d0934bdbd8702ebce2';
+  var gaud_map_key = 'f7fc8942b29f9f35faa3399f70793edf';
+  var baidu_ak_key = 'undefined';
+  var flag = 0;
+  var clock_rectangle = '112.982279,28.19409';
+  var clock_default_rectangle_enable = 'false';
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  </script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.js"></script><script async src="//at.alicdn.com/t/c/font_4133697_i8em6d1t5h.js"></script><!-- hexo injector body_end end --></body></html>
