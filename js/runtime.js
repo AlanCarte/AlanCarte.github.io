@@ -1,0 +1,1 @@
+var year,month,week,date,dates,weekStr,monthStr,asideTime,asideDay,asideDayNum,animalYear,ganzhiYear,lunarMon,lunarDay,now=new Date;function cardRefreshTimes(){var e=document.getElementById("aside-time-right");e&&(e.innerHTML=now.getHours().toString().padStart(2,"0")+":"+now.getMinutes().toString().padStart(2,"0")+":"+now.getSeconds().toString().padStart(2,"0"))}
